@@ -4,5 +4,20 @@ import java.util.LinkedList;
 
 public class QuestionnaireCollection
 {
-    LinkedList
+    float failGrade;
+    float[] grading;
+
+    Questionnaire correctAnswers;
+    LinkedList<Questionnaire> questionnairesCollection;
+
+    public QuestionnaireCollection(float failGrade, float[] grading, Questionnaire correctAnswers)
+    {
+        this.failGrade=failGrade;
+        this.grading=grading;
+        this.correctAnswers=correctAnswers;
+    }
+    public void addQuestionnaire(Questionnaire questionnaire)
+    {
+        
+    }
 }
