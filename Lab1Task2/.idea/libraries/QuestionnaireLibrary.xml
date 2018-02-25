@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="QuestionnaireLibrary">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../JavaLab/out/production/Lab1/QuestionnaireLibrary.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

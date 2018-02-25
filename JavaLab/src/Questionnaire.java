@@ -1,6 +1,4 @@
-package java.questionnaire;
-
-import java.util.*;
+import  java.util.*;
 
 public class Questionnaire
 {
@@ -15,7 +13,8 @@ public Questionnaire(int numberOfQuestions, int amountOfPossibleAnswers)
     for (int i=0;i<this.numberOfQuestions;i++)
         answerContainer.add(new LinkedList<>());
 }
-public void defineQuestionaire(LinkedList<Character>... Answers) throws QuestionnaireMismatchException
+public void defineQuestionaire(LinkedList<Character>... Answers) throws
+                                                                 QuestionnaireMismatchException
 {
     if(Answers.length > this.numberOfQuestions)
         throw new QuestionnaireMismatchException();
@@ -35,7 +34,8 @@ public void setAnswer(int index, LinkedList<Character> answer) throws IndexOutOf
         throw new IndexOutOfBoundsException();
     this.answerContainer.set(index, answer);
 }
-public int compare(Questionnaire questionnaire) throws QuestionnaireMismatchException
+public int compare(Questionnaire questionnaire) throws
+                                                QuestionnaireMismatchException
 {
     int correctAnswerCounter = 0;
     //Initial Check
