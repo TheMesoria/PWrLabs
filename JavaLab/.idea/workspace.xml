@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ded0b05b-5333-4aba-b0bf-ba7f29fedcb2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/../Lab1Task2/questionnaries/Q1.csv" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/Questionnaire.class" afterPath="$PROJECT_DIR$/out/production/Lab1/Questionnaire.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/QuestionnaireCollection.class" afterPath="$PROJECT_DIR$/out/production/Lab1/QuestionnaireCollection.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab1/QuestionnaireLibrary.jar" afterPath="$PROJECT_DIR$/out/production/Lab1/QuestionnaireLibrary.jar" />
-      <change beforePath="$PROJECT_DIR$/src/Questionnaire.java" afterPath="$PROJECT_DIR$/src/Questionnaire.java" />
-      <change beforePath="$PROJECT_DIR$/src/QuestionnaireCollection.java" afterPath="$PROJECT_DIR$/src/QuestionnaireCollection.java" />
-      <change beforePath="$PROJECT_DIR$/../Lab1Task2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Lab1Task2/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/../Lab1Task2/Lab1Task2.iml" afterPath="$PROJECT_DIR$/../Lab1Task2/Lab1Task2.iml" />
-      <change beforePath="$PROJECT_DIR$/../Lab1Task2/out/production/Lab1Task2/Main.class" afterPath="$PROJECT_DIR$/../Lab1Task2/out/production/Lab1Task2/Main.class" />
-      <change beforePath="$PROJECT_DIR$/../Lab1Task2/src/Main.java" afterPath="$PROJECT_DIR$/../Lab1Task2/src/Main.java" />
-    </list>
+    <list default="true" id="ded0b05b-5333-4aba-b0bf-ba7f29fedcb2" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
