@@ -2,11 +2,11 @@ import java.util.LinkedList;
 
 public class QuestionnaireCollection
 {
-	float failGrade;
-	float[] grading;
+	private float failGrade;
+	private float[] grading;
 
-	Questionnaire correctAnswers;
-	LinkedList<Questionnaire> questionnairesCollection;
+	private Questionnaire correctAnswers;
+	private LinkedList<Questionnaire> questionnairesCollection = new LinkedList<>();
 
 	public QuestionnaireCollection(float failGrade, float[] grading, Questionnaire correctAnswers)
 	{
