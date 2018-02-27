@@ -6,6 +6,15 @@ public class Questionnaire
 	private int amountOfPossibleAnswers;
 	private LinkedList<LinkedList<Character>> answerContainer;
 
+	/**
+	 * Default constructor
+	 * <p>
+	 *     Creates object of Questionnaire, with some basic values. Object is empty, and require som data to fill it in.
+	 * </p>
+	 *
+	 * @param numberOfQuestions - defines number of max possieble question in questionnaire
+	 * @param amountOfPossibleAnswers - defines number (MAX) in single question
+	 */
 	public Questionnaire(int numberOfQuestions, int amountOfPossibleAnswers)
 	{
 		this.numberOfQuestions = numberOfQuestions;
@@ -15,6 +24,11 @@ public class Questionnaire
 			answerContainer.add(new LinkedList<>());
 	}
 
+	/**
+	 *
+	 * @param Answers - Collection which contains user answers
+	 * @throws QuestionnaireMismatchException - Throwed in case of any not correct definition.
+	 */
 	public void defineQuestionaire(LinkedList<Character>... Answers) throws
 																	 QuestionnaireMismatchException
 	{
@@ -28,6 +42,12 @@ public class Questionnaire
 		}
 	}
 
+	/**
+	 *
+	 * @param index - where to put the data
+	 * @param answer - data to put into
+	 * @throws IndexOutOfBoundsException
+	 */
 	public void setAnswer(int index, LinkedList<Character> answer) throws
 																   IndexOutOfBoundsException
 	{
@@ -37,6 +57,12 @@ public class Questionnaire
 		this.answerContainer.set(index, answer);
 	}
 
+	/**
+	 *
+	 * @param questionnaire - questionnaire to be compared to
+	 * @return - amount of correct answers
+	 * @throws QuestionnaireMismatchException - in case of comparing different questionnaires
+	 */
 	public int compare(Questionnaire questionnaire) throws
 													QuestionnaireMismatchException
 	{

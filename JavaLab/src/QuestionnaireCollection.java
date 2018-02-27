@@ -8,6 +8,16 @@ public class QuestionnaireCollection
 	private Questionnaire correctAnswers;
 	private LinkedList<Questionnaire> questionnairesCollection = new LinkedList<>();
 
+	/**
+	 * Default Constructor
+	 * <p>
+	 *     Creates the collection
+	 * </p>
+	 *
+	 * @param failGrade - float, which defines what is the last fail grade
+	 * @param grading - float, tells you what are different grades
+	 * @param correctAnswers - correct Answers to the Test
+	 */
 	public QuestionnaireCollection(float failGrade, float[] grading, Questionnaire correctAnswers)
 	{
 		this.failGrade = failGrade;
