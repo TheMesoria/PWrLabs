@@ -16,6 +16,7 @@ public class Main
 			Questionnaire questionnaireQ3 = QuestionnaireLoader.Load("/home/black/Work/Labs/Lab1Task2/questionnaries/Q3.csv");
 			Questionnaire questionnaireQ4 = QuestionnaireLoader.Load("/home/black/Work/Labs/Lab1Task2/questionnaries/Q4.csv");
 
+			questionnaireQ1.getNumberOfQuestions();
 			QuestionnaireCollection questionnaireCollection = new QuestionnaireCollection(0.89f,new float[]{0.5f,0.7f},questionnaireCorrect);
 			questionnaireCollection.addQuestionnaire(questionnaireQ1);
 			questionnaireCollection.addQuestionnaire(questionnaireQ2);

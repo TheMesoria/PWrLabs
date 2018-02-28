@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../JavaLab/out/production/Lab1/QuestionnaireLibrary.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/../JavaLab/out/production/Lab1/doc" />
+    </JAVADOC>
     <SOURCES />
   </library>
 </component>
