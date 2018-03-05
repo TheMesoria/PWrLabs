@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -10,59 +11,99 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane
+        maxHeight="-Infinity"
+        maxWidth="-Infinity"
+        minHeight="-Infinity"
+        minWidth="-Infinity"
+        prefHeight="400.0"
+        prefWidth="600.0"
+        xmlns="http://javafx.com/javafx/8.0.141"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="MainSceneController"
+>
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-                  <Menu mnemonicParsing="false" text="Language">
-                    <items>
-                        <MenuItem id="languageUs" mnemonicParsing="false" text="language.us" />
-                        <MenuItem id="languageEn" mnemonicParsing="false" text="language.en" />
-                      <MenuItem id="languagePl" mnemonicParsing="false" text="language.pl" />
-                    </items>
-                  </Menu>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
+       <MenuBar BorderPane.alignment="CENTER">
+           <Menu
+                   fx:id="help"
+                   mnemonicParsing="false"
+                   text="Help"
+           >
+               <Menu
+                       mnemonicParsing="false"
+                       fx:id="language"
+                       text="Language">
+                   <MenuItem
+                           onAction="#changeLanguageUs"
+                           id="languageUs"
+                           fx:id="languageUs"
+                           mnemonicParsing="false"
+                           text="language.us"
+                   />
+                   <MenuItem
+                           onAction="#changeLanguageEn"
+                           id="languageEn"
+                           fx:id="languageEn"
+                           mnemonicParsing="false"
+                           text="language.en"
+                   />
+                   <MenuItem
+                           onAction="#changeLanguagePl"
+                           id="languagePl"
+                           fx:id="languagePl"
+                           mnemonicParsing="false"
+                           text="language.pl"
+                   />
+               </Menu>
+               <MenuItem mnemonicParsing="false" text="About" />
+           </Menu>
+       </MenuBar>
    </top>
    <center>
       <BorderPane BorderPane.alignment="CENTER">
          <center>
-            <AnchorPane>
-               <children>
-                  <FlowPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
+             <AnchorPane>
+                 <FlowPane
+                         fx:id="mainFlowPane"
+                         prefHeight="200.0"
+                         prefWidth="200.0"
+                         AnchorPane.bottomAnchor="0.0"
+                         AnchorPane.leftAnchor="0.0"
+                         AnchorPane.rightAnchor="0.0"
+                         AnchorPane.topAnchor="0.0"
+                 />
+             </AnchorPane>
          </center>
          <left>
-            <Separator orientation="VERTICAL" prefHeight="200.0" BorderPane.alignment="CENTER" />
+            <Separator
+                    orientation="VERTICAL"
+                    prefHeight="200.0"
+                    BorderPane.alignment="CENTER"
+            />
          </left>
       </BorderPane>
    </center>
    <left>
-      <VBox prefHeight="371.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="113.0">
-               <children>
-                  <Button id="load" layoutX="19.0" layoutY="23.0" mnemonicParsing="false" text="Load" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="113.0">
-               <children>
-                  <Button id="save" layoutX="19.0" layoutY="23.0" mnemonicParsing="false" text="Save" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="10.0" layoutY="60.0" prefHeight="50.0" prefWidth="113.0">
-               <children>
-                  <Button id="edit" layoutX="19.0" layoutY="23.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
-         </children>
-      </VBox>
+       <VBox prefHeight="371.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+           <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="113.0">
+               <Button onAction="#loadButtonClick" id="load" fx:id="loadButton" layoutX="19.0" layoutY="23.0" mnemonicParsing="false" text="Load" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+           </AnchorPane>
+           <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="113.0">
+               <Button onAction="#saveButtonClick" id="save" fx:id="saveButton" layoutX="19.0" layoutY="23.0" mnemonicParsing="false" text="Save" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+           </AnchorPane>
+           <AnchorPane layoutX="10.0" layoutY="60.0" prefHeight="50.0" prefWidth="113.0">
+               <Button onAction="#editButtonClick" id="edit" fx:id="editButton" layoutX="19.0" layoutY="23.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+           </AnchorPane>
+       </VBox>
    </left>
+   <bottom>
+       <AnchorPane BorderPane.alignment="CENTER">
+           <Label
+                   fx:id="counter"
+                   AnchorPane.bottomAnchor="5.0"
+                   AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="5.0"
+           />
+       </AnchorPane>
+   </bottom>
 </BorderPane>

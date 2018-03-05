@@ -1,21 +1,25 @@
+import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ResourceBundle;
 
-public class Main
+public class Main extends Application
 {
-	public void start() throws
+	@Override
+	public void start(Stage stage) throws
 						IOException
 	{
-		ResourceBundle rb = ResourceBundle.getBundle("lang.pl_PL");
-		System.out.println(rb.getString("name"));
-		Parent root = FXMLLoader.load(getClass().getResource("view/MainScene.fxml"));
+		//LanguageHolder.setResourceBundle(ResourceBundle.getBundle("lang.pl_PL"));
+		FXMLLoader loader= new FXMLLoader(getClass().getResource("view/MainScene.fxml"));
+		loader.load();
+		Parent root = loader.getRoot();
+		MainSceneController msc = loader.getController();
+		msc.reload();
+
 		Scene scene = new Scene(root);
-		Stage stage = new Stage();
 		stage.setScene(scene);
 		stage.setTitle("Test");
 		stage.show();
@@ -23,14 +27,6 @@ public class Main
 
 	public static void main(String[] args)
 	{
-		Main main = new Main();
-		try
-		{
-			main.start();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
+		launch(args);
 	}
 }
