@@ -1,6 +1,7 @@
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.Currency;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -9,6 +10,7 @@ public class LanguageHolder
 {
 	static ResourceBundle resourceBundle = ResourceBundle.getBundle("lang.en_EN");
 	static public Currency currency = Currency.getInstance(Locale.UK);
+	static public SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
 	/** Get active language bundle
 	 *
 	 * @return actual language bundle
@@ -27,7 +29,7 @@ public class LanguageHolder
 	}
 	static DateFormat getDateFormat()
 	{
-		return DateFormat.getDateInstance(DateFormat.SHORT, Locale.getDefault());
+		return SimpleDateFormat.getDateInstance(DateFormat.SHORT, Locale.getDefault());
 	}
 	static NumberFormat getNumberFormat()
 	{

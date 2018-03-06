@@ -88,20 +88,14 @@
            <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="113.0">
                <Button onAction="#loadButtonClick" id="load" fx:id="loadButton" layoutX="19.0" layoutY="23.0" mnemonicParsing="false" text="Load" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
            </AnchorPane>
-           <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="113.0">
-               <Button onAction="#saveButtonClick" id="save" fx:id="saveButton" layoutX="19.0" layoutY="23.0" mnemonicParsing="false" text="Save" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-           </AnchorPane>
-           <AnchorPane layoutX="10.0" layoutY="60.0" prefHeight="50.0" prefWidth="113.0">
-               <Button onAction="#editButtonClick" id="edit" fx:id="editButton" layoutX="19.0" layoutY="23.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-           </AnchorPane>
        </VBox>
    </left>
    <bottom>
        <AnchorPane BorderPane.alignment="CENTER">
            <Label
                    fx:id="counter"
+                   text="Ready for action..."
                    AnchorPane.bottomAnchor="5.0"
-                   AnchorPane.leftAnchor="0.0"
                    AnchorPane.rightAnchor="5.0"
            />
        </AnchorPane>
