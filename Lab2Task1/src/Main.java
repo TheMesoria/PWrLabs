@@ -13,7 +13,6 @@ public class Main extends Application
 	public void start(Stage stage) throws
 						IOException
 	{
-		//LanguageHolder.setResourceBundle(ResourceBundle.getBundle("lang.pl_PL"));
 		FXMLLoader loader= new FXMLLoader(getClass().getResource("view/MainScene.fxml"));
 		loader.load();
 		Parent root = loader.getRoot();
