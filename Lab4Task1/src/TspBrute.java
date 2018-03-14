@@ -1,3 +1,5 @@
+import com.sun.tools.javac.Main;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,6 +10,12 @@ public class TspBrute
 {
 	private int[][] map;
 	private int result = 0x99999;
+	private final String description="Traveling sales man problem BRUTE FORCE";
+
+	public String getDescription()
+	{
+		return description;
+	}
 
 	/**
 	 *  Ehhh It works!~~ Leave it.
@@ -91,4 +99,5 @@ public class TspBrute
 	{
 		return result;
 	}
+
 }

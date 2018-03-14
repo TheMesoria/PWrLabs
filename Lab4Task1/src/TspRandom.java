@@ -6,9 +6,23 @@ import java.util.Random;
 
 public class TspRandom
 {
-	private long amountOftries;
+	private long amountOfEntries;
 	private int[][] map;
 	private int result = 0x99999;
+
+	public long getAmountOfEntries()
+	{
+		return amountOfEntries;
+	}
+
+	public String getDescription()
+	{
+
+		return description;
+	}
+
+	private final String description="Traveling sales man problem RANDOM";
+
 
 	private void initMap(String path)
 	{
@@ -73,10 +87,11 @@ public class TspRandom
 
 		if(result<this.result) this.result=result;
 	}
-	public TspRandom (String path, long AmountOfEntries)
+	public TspRandom (String path)
 	{
+		amountOfEntries = 1000;
 		initMap(path);
-		for(int i=0;i<AmountOfEntries;i++) getRandomResult();
+		for(int i=0;i<this.amountOfEntries;i++) getRandomResult();
 	}
 	public int getResult()
 	{
