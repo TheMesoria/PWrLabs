@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class TspRandom
+public class TspRandom implements Tsp
 {
 	private long amountOfEntries;
 	private int[][] map;

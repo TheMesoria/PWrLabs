@@ -2,23 +2,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
-public class TspBrute implements Tsp
+public class TspNeighbour implements Tsp
 {
+	private long amountOfEntries;
 	private int[][] map;
-	private int result = 0x99999;
-	private final String description="Traveling sales man problem BRUTE FORCE";
+	private int result = 0x0;
 
-	public String getDescription()
-	{
-		return description;
-	}
+	private final String description="Traveling sales man problem NEIGHBOUR";
 
-	/**
-	 *  Ehhh It works!~~ Leave it.
-	 * @param path path to loaded file
-	 */
+
 	private void initMap(String path)
 	{
 		BufferedReader br = null;
@@ -56,46 +49,55 @@ public class TspBrute implements Tsp
 			}
 		}
 	}
-	private void bruteIt()
-	{
-		ArrayList<Integer> elements = new ArrayList<>();
-		for(int i=0;i<map.length;i++)
-			elements.add(i);
 
-		for(int i=0;i<elements.size();i++)
-		{
-			int tmp = elements.remove(i);
-			routeIt(elements,tmp);
-			elements.add(i,tmp);
-		}
-
-	}
-	private void routeIt(ArrayList<Integer> elements, Integer active)
+	@Override
+	public String getDescription()
 	{
-		for(int i=0;i<elements.size();i++)
-		{
-			elements.add(i,active);
-			int length=getLength(elements);
-			if(length<result) result=length;
-			elements.remove(i);
-		}
-	}
-	private int getLength(List<Integer> list)
-	{
-		int tmp=0;
-		for(int i=1;i<list.size();i++)
-			tmp += map[list.get(i - 1)][list.get(i)];
-		return tmp;
-	}
-	public TspBrute(String path)
-	{
-		this.initMap(path);
-		this.bruteIt();
+		return description;
 	}
 
+	@Override
 	public int getResult()
 	{
 		return result;
 	}
 
+	private void calcMap()
+	{
+		ArrayList<Integer> elements = new ArrayList<>();
+		for(int i=0;i<map.length;i++)
+			elements.add(i);
+
+		result+=map[elements.get(0)][elements.get(elements.size()-1)];
+
+		int i=elements.size();
+		Integer last=0;
+		for(int j=0;j<i;j++)
+		{
+			routeIt(elements,last);
+		}
+	}
+
+	private void routeIt(ArrayList<Integer> elements, Integer active)
+	{
+		int best = 0x9999999,bestI=-1;
+		for(int i=0;i<elements.size();i++)
+		{
+			int tmp = map[active][elements.get(i)];
+			if(tmp<best)
+			{
+				best=tmp;
+				bestI=i;
+			}
+		}
+		active=elements.get(bestI);
+		elements.remove(bestI);
+		result+=best;
+	}
+
+	public TspNeighbour(String path)
+	{
+		this.initMap(path);
+		calcMap();
+	}
 }
