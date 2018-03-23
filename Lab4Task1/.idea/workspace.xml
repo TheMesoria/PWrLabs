@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="553d4f93-16cf-4e03-975d-34d0f4147ab9" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/BestOf.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Tsp.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/TspNeighbour.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4Task1/TspBrute.class" afterPath="$PROJECT_DIR$/out/production/Lab4Task1/TspBrute.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab4Task1/TspRandom.class" afterPath="$PROJECT_DIR$/out/production/Lab4Task1/TspRandom.class" />
-      <change beforePath="$PROJECT_DIR$/src/TspBrute.java" afterPath="$PROJECT_DIR$/src/TspBrute.java" />
-      <change beforePath="$PROJECT_DIR$/src/TspRandom.java" afterPath="$PROJECT_DIR$/src/TspRandom.java" />
       <change beforePath="$PROJECT_DIR$/../Lab4Task2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Lab4Task2/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/../Lab4Task2/out/production/Lab4Task2/Main.class" afterPath="$PROJECT_DIR$/../Lab4Task2/out/production/Lab4Task2/Main.class" />
       <change beforePath="$PROJECT_DIR$/../Lab4Task2/src/Main.java" afterPath="$PROJECT_DIR$/../Lab4Task2/src/Main.java" />
-      <change beforePath="$PROJECT_DIR$/../Lab4Task2/src/TspBrute.class" afterPath="$PROJECT_DIR$/../Lab4Task2/src/TspBrute.class" />
-      <change beforePath="$PROJECT_DIR$/../Lab4Task2/src/TspRandom.class" afterPath="$PROJECT_DIR$/../Lab4Task2/src/TspRandom.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +19,8 @@
       <file leaf-file-name="BestOf.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BestOf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+            <state relative-caret-position="312">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -103,10 +93,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="25" />
-    <option name="width" value="1299" />
+    <option name="width" value="650" />
     <option name="height" value="743" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -325,15 +315,16 @@
       <workItem from="1521027977844" duration="76000" />
       <workItem from="1521576336128" duration="1227000" />
       <workItem from="1521578010328" duration="1077000" />
-      <workItem from="1521628060738" duration="1530000" />
+      <workItem from="1521628060738" duration="1531000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12650000" />
+    <option name="totallyTimeSpent" value="12651000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1299" height="743" extended-state="7" />
+    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -651,8 +642,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BestOf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        <state relative-caret-position="312">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>

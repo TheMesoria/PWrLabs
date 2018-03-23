@@ -38,7 +38,7 @@ public class Main
 				String string = scanner.nextLine();
 				if(string.compareTo("stop")==0){working=false;continue; }
 				if(string.compareTo("size")==0){System.out.println(tspArr.size());}
-				if(string.compareTo("unload")==0){tspArr=new ArrayList<>();continue;}
+				if(string.compareTo("unload")==0){tspArr=new ArrayList<>();classLoader=null;setClassLoaders();continue;}
 				if(string.compareTo("best")==0){Tsp[] ret=tspArr.toArray(new Tsp[0]);System.out.println("Best of: " + bestOf(ret));continue;}
 
 				Tsp tsp = loadTspClass(string);
