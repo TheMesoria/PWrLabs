@@ -19,8 +19,8 @@ public class Main extends Application
 		primaryStage.setWidth(300);
 		primaryStage.setHeight(300);
 
-		simpleBean.setSpacing(10);
-		((Group) scene.getRoot()).getChildren().add(simpleBean);
+		//simpleBean.setSpacing(10);
+		//((Group) scene.getRoot()).getChildren().add();
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

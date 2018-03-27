@@ -1,0 +1,3 @@
+Name: SimpleBean.class
+Java-Bean: True
+Export-Package:
