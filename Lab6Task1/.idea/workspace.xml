@@ -136,7 +136,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1314" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
@@ -263,15 +263,15 @@
       <updated>1522768381496</updated>
       <workItem from="1522768387417" duration="154000" />
       <workItem from="1522768579521" duration="113000" />
-      <workItem from="1522768733055" duration="12252000" />
+      <workItem from="1522768733055" duration="12863000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12519000" />
+    <option name="totallyTimeSpent" value="13130000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="-30" width="1920" height="1230" extended-state="6" />
+    <frame x="1987" y="25" width="1853" height="1175" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -291,7 +291,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" x="0" y="0" width="413" height="975" id="Documentation" side_tool="true" weight="0.29114583" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29555362" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3177132" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info auto_hide="true" content_ui="combo" id="Project" order="0" weight="0.26145834" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32944608" />

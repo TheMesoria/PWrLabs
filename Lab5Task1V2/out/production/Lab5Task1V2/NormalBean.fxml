@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+
+<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml" prefHeight="45.0" prefWidth="267.0" fx:controller="main.java.NormalBean">
+   <center>
+      <CheckBox fx:id="lockCheckBox" mnemonicParsing="false" text="Lock Button" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <Button fx:id="changeButton" mnemonicParsing="false" onMouseClicked="#onButtonMouseClick" text="Change Label" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+   <top>
+      <Label fx:id="labelStandardText" text="This is standard Text" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+</fx:root>
