@@ -3,6 +3,10 @@ package main;
 import main.interfaces.Helper;
 import main.interfaces.Server;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
 import java.rmi.AlreadyBoundException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -11,6 +15,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ServerImplementation extends UnicastRemoteObject implements Server
 {
@@ -25,33 +30,72 @@ public class ServerImplementation extends UnicastRemoteObject implements Server
 	Registry registry;
 	ArrayList<String> nodes_;
 
+	private void read(String name) throws RemoteException, NotBoundException
+	{
+		ArrayList<FileChunk> fileChunkArrayList = new ArrayList<>();
+		for (String node : nodes_)
+		{
+			Helper helper = (Helper) registry.lookup(node);
+			FileChunk fileChunk = helper.getFileChunk(name);
+			if (fileChunk != null)
+			{
+				fileChunkArrayList.add(fileChunk);
+			}
+		}
+		int shown=0,known=fileChunkArrayList.size();
+		while(shown!=known)
+		{
+			for(FileChunk fileChunk:fileChunkArrayList)
+				if(fileChunk.getChunkId_()==shown)
+					System.out.println(fileChunk.getContent_());
+			shown++;
+		}
+	}
+
 	public void Start() throws RemoteException, AlreadyBoundException
 	{
 		try
 		{
-			System.in.read();
-			System.out.println(Arrays.toString(registry.list()));
-			Helper helper = (Helper) registry.lookup(nodes_.get(0));
-			FileChunk fileChunk = new FileChunk("/home/black/test.elm");
-			if(helper.acceptFileChunk(fileChunk))
+			boolean done = false;
+			String name;
+			BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+			while (!done)
 			{
-				System.out.println("File accepted.");
-			}
-			else
-			{
-				System.out.println("File rejected");
+				System.out.println("1. Load File.");
+				System.out.println("2. Read File.");
+				System.out.println("3. Show conatiners for:");
+				int input = buffer.read();
+				switch (input)
+				{
+					case '1':
+						System.out.println("File path?");
+						name = buffer.readLine();
+						name = buffer.readLine();
+						System.out.println(name);
+						uploadFile(name);
+						break;
+					case '2':
+						System.out.println("File path?");
+						name = buffer.readLine();
+						name = buffer.readLine();
+						System.out.println(name);
+						read(name);
+						break;
+					case '3':
+						System.out.println("File path?");
+						name = buffer.readLine();
+						name = buffer.readLine();
+						System.out.println(name);
+						getPeersForFile(name);
+						break;
+					case 'q':
+						done = true;
+						break;
+				}
 			}
 
-			FileChunk fileChunkRec = helper.getFileChunk("/home/black/test.elm");
-			if(fileChunk!=null)
-			{
-				System.out.println(fileChunk.getContent_());
-			}
-			for(String name : nodes_)
-			{
-				Helper closer = (Helper) registry.lookup(name);
-			}
-			UnicastRemoteObject.unexportObject(this,true);
+
+			UnicastRemoteObject.unexportObject(this, true);
 		} catch (Exception e)
 		{
 			e.printStackTrace();
@@ -66,9 +110,21 @@ public class ServerImplementation extends UnicastRemoteObject implements Server
 	}
 
 	@Override
-	public void uploadFile(String path) throws RemoteException
+	public void uploadFile(String path) throws RemoteException, NotBoundException, FileNotFoundException
 	{
-
+		FileChunk fileChunk = new FileChunk(path);
+		FileChunk[] fileChunks = fileChunk.splitInto(nodes_.size());
+		for (int i = 0; i < nodes_.size(); i++)
+		{
+			Helper helper = (Helper) registry.lookup(nodes_.get(i));
+			if (helper.acceptFileChunk(fileChunks[i]))
+			{
+				System.out.println("Succesful send to: " + nodes_.get(i));
+			} else
+			{
+				System.out.println("Fail send to: " + nodes_.get(i));
+			}
+		}
 	}
 
 	@Override
