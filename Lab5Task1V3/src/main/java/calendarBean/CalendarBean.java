@@ -6,7 +6,9 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
@@ -18,6 +20,16 @@ public class CalendarBean extends AnchorPane {
     private Thread timeChecker;
     @FXML
     private CheckBox activeCheckBox;
+    @FXML
+    private Button butonButon;
+
+    private SimpleObjectProperty<Integer> inteasd;
+
+    @FXML
+    void onMouseClicked(MouseEvent event) {
+
+    }
+
 
     private SimpleObjectProperty<LocalDateTime> notificationDateProperty;
     private SimpleBooleanProperty alarmFired;
