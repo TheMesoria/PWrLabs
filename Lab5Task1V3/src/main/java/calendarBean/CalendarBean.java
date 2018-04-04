@@ -2,6 +2,7 @@ package calendarBean;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,16 +18,17 @@ import java.time.DateTimeException;
 import java.time.LocalDateTime;
 
 public class CalendarBean extends AnchorPane {
-    private Thread timeChecker;
     @FXML
     private CheckBox activeCheckBox;
     @FXML
     private Button butonButon;
 
-    private SimpleObjectProperty<Integer> inteasd;
+    private SimpleIntegerProperty clickLimit;
+    private SimpleIntegerProperty clicks;
 
     @FXML
     void onMouseClicked(MouseEvent event) {
+        if(activeCheckBox.isSelected()){}
 
     }
 
