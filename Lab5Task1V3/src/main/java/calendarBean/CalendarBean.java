@@ -13,17 +13,12 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 
 public class CalendarBean extends AnchorPane {
     private Thread timeChecker;
     @FXML
     private CheckBox activeCheckBox;
-    @FXML
-    private Text hourText;
-    @FXML
-    private Text dateText;
+
     private SimpleObjectProperty<LocalDateTime> notificationDateProperty;
     private SimpleBooleanProperty alarmFired;
 
@@ -49,8 +44,6 @@ public class CalendarBean extends AnchorPane {
     }
 
     private void updateTime() {
-        hourText.setText(getFormattedTime());
-        dateText.setText(getFormattedDate());
     }
 
     public SimpleObjectProperty<LocalDateTime> notificationDateProperty() {
@@ -91,43 +84,6 @@ public class CalendarBean extends AnchorPane {
 
     public void statusCheckBoxPressed(ActionEvent actionEvent) {
         if (activeCheckBox.isSelected()) {
-            runAlarm();
         }
     }
-
-    private void runAlarm() {
-        timeChecker = new Thread(this::checkNotificationDate);
-        timeChecker.start();
-    }
-
-    private void checkNotificationDate() {
-        while (activeCheckBox.isSelected() && !alarmFired.get()) {
-            if (isNotificationTimeNow()) {
-                alarmFired.set(true);
-            }
-            try {
-                Thread.sleep(5);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private String getFormattedDate() {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        return notificationDateProperty.get().format(dateTimeFormatter);
-    }
-
-    private String getFormattedTime() {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-        return notificationDateProperty.get().format(dateTimeFormatter);
-    }
-
-    private boolean isNotificationTimeNow() {
-        LocalDateTime currentTime = LocalDateTime.now();
-        LocalDateTime notificationDate = getNotificationDate();
-        return currentTime.isEqual(notificationDate) || currentTime.isAfter(notificationDate);
-    }
-
-
 }
