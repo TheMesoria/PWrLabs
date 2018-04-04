@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+<fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml"
+            prefHeight="45.0" prefWidth="267.0">
+    <children>
+        <Label layoutX="-2.0" layoutY="-2.0" text="Time"/>
+        <Label layoutX="89.0" layoutY="-2.0" text="Date"/>
+        <Label layoutX="232.0" layoutY="-2.0" text="Status"/>
+        <Text fx:id="hourText" layoutX="2.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="13:34:20"/>
+        <Text fx:id="dateText" layoutX="89.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="24.10.2018"/>
+        <CheckBox fx:id="statusCheckBox" layoutX="248.0" layoutY="17.0" mnemonicParsing="false"
+                  onAction="#statusCheckBoxPressed" prefHeight="18.0" prefWidth="8.0"/>
+    </children>
+</fx:root>
