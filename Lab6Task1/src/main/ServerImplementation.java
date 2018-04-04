@@ -30,7 +30,8 @@ public class ServerImplementation extends UnicastRemoteObject implements Server
 	Registry registry;
 	ArrayList<String> nodes_;
 
-	private void read(String name) throws RemoteException, NotBoundException
+	@Override
+	public ArrayList<FileChunk> read(String name) throws RemoteException, NotBoundException
 	{
 		ArrayList<FileChunk> fileChunkArrayList = new ArrayList<>();
 		for (String node : nodes_)
@@ -42,60 +43,16 @@ public class ServerImplementation extends UnicastRemoteObject implements Server
 				fileChunkArrayList.add(fileChunk);
 			}
 		}
-		int shown=0,known=fileChunkArrayList.size();
-		while(shown!=known)
-		{
-			for(FileChunk fileChunk:fileChunkArrayList)
-				if(fileChunk.getChunkId_()==shown)
-					System.out.println(fileChunk.getContent_());
-			shown++;
-		}
+		return fileChunkArrayList;
 	}
 
 	public void Start() throws RemoteException, AlreadyBoundException
 	{
 		try
 		{
-			boolean done = false;
-			String name;
-			BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-			while (!done)
-			{
-				System.out.println("1. Load File.");
-				System.out.println("2. Read File.");
-				System.out.println("3. Show conatiners for:");
-				int input = buffer.read();
-				switch (input)
-				{
-					case '1':
-						System.out.println("File path?");
-						name = buffer.readLine();
-						name = buffer.readLine();
-						System.out.println(name);
-						uploadFile(name);
-						break;
-					case '2':
-						System.out.println("File path?");
-						name = buffer.readLine();
-						name = buffer.readLine();
-						System.out.println(name);
-						read(name);
-						break;
-					case '3':
-						System.out.println("File path?");
-						name = buffer.readLine();
-						name = buffer.readLine();
-						System.out.println(name);
-						getPeersForFile(name);
-						break;
-					case 'q':
-						done = true;
-						break;
-				}
-			}
 
 
-			UnicastRemoteObject.unexportObject(this, true);
+			// UnicastRemoteObject.unexportObject(this, true);
 		} catch (Exception e)
 		{
 			e.printStackTrace();
@@ -112,6 +69,7 @@ public class ServerImplementation extends UnicastRemoteObject implements Server
 	@Override
 	public void uploadFile(String path) throws RemoteException, NotBoundException, FileNotFoundException
 	{
+		if(nodes_.size()<3) return;
 		FileChunk fileChunk = new FileChunk(path);
 		FileChunk[] fileChunks = fileChunk.splitInto(nodes_.size());
 		for (int i = 0; i < nodes_.size(); i++)

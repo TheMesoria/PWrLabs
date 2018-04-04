@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -22,19 +23,49 @@ public class CalendarBean extends AnchorPane {
     private CheckBox activeCheckBox;
     @FXML
     private Button butonButon;
+    @FXML
+    private Label label;
 
     private SimpleIntegerProperty clickLimit;
     private SimpleIntegerProperty clicks;
 
-    @FXML
-    void onMouseClicked(MouseEvent event) {
-        if(activeCheckBox.isSelected()){}
-
+    public int getClickLimit()
+    {
+        return clickLimit.get();
     }
 
+    public SimpleIntegerProperty clickLimitProperty()
+    {
+        return clickLimit;
+    }
 
-    private SimpleObjectProperty<LocalDateTime> notificationDateProperty;
-    private SimpleBooleanProperty alarmFired;
+    public void setClickLimit(int clickLimit)
+    {
+        this.clickLimit.set(clickLimit);
+    }
+
+    public int getClicks()
+    {
+        return clicks.get();
+    }
+
+    public SimpleIntegerProperty clicksProperty()
+    {
+        return clicks;
+    }
+
+    public void setClicks(int clicks)
+    {
+        this.clicks.set(clicks);
+    }
+
+    @FXML
+    void onMouseClicked(MouseEvent event) {
+        if(activeCheckBox.isSelected() && getClickLimit() > getClicks()){
+            setClicks(clicks.get()+1);
+            label.setText(Integer.toString(getClicks()));
+        }
+    }
 
     public CalendarBean() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
@@ -51,32 +82,9 @@ public class CalendarBean extends AnchorPane {
 
     @FXML
     public void initialize() {
-        notificationDateProperty = new SimpleObjectProperty<>(this, "notificationDateProperty");
-        alarmFired = new SimpleBooleanProperty(false);
-        notificationDateProperty.set(LocalDateTime.now());
-        updateTime();
     }
 
-    private void updateTime() {
-    }
 
-    public SimpleObjectProperty<LocalDateTime> notificationDateProperty() {
-        return notificationDateProperty;
-    }
-
-    public LocalDateTime getNotificationDate() {
-        return notificationDateProperty.get();
-    }
-
-    public void setNotificationDate(LocalDateTime newNotificationDate) throws DateTimeException {
-        LocalDateTime currentTime = LocalDateTime.now();
-        if (newNotificationDate.isBefore(currentTime)) {
-            throw new DateTimeException("Invalid date!");
-        } else {
-            notificationDateProperty.set(newNotificationDate);
-            updateTime();
-        }
-    }
 
     public void setActive(boolean isActive){
         activeCheckBox.selectedProperty().setValue(isActive);
@@ -86,14 +94,6 @@ public class CalendarBean extends AnchorPane {
     }
     public BooleanProperty activeProperty(){
         return activeCheckBox.selectedProperty();
-    }
-
-    public boolean getAlarmFired() {
-        return alarmFired.get();
-    }
-
-    public BooleanProperty alarmFiredProperty() {
-        return alarmFired;
     }
 
     public void statusCheckBoxPressed(ActionEvent actionEvent) {
