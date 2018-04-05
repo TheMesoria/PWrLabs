@@ -2,21 +2,22 @@ package signal;
 
 public class RoadSignal implements Signal
 {
-	public enum Signal{GO,READY,STOP}
+	public enum KnownSignal
+	{GO,READY,STOP}
 
-	public Signal getPositiveSignal()
+	public KnownSignal getPositiveSignal()
 	{
-		return Signal.GO;
+		return KnownSignal.GO;
 	}
 
-	public Signal getSteadySignal()
+	public KnownSignal getSteadySignal()
 	{
-		return Signal.READY;
+		return KnownSignal.READY;
 	}
 
-	public Signal getNegativeSignal()
+	public KnownSignal getNegativeSignal()
 	{
-		return Signal.STOP;
+		return KnownSignal.STOP;
 	}
 
 	public Object getOtherSignal(String type)

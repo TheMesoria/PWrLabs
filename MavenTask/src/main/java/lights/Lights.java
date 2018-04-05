@@ -4,4 +4,5 @@ public interface Lights
 {
 	void setActiveStatus(Object status);
 	Object getActiveStatus();
+	void switchLight();
 }
