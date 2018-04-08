@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.ResourcePreviewController">
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <JFXButton fx:id="loadUsersButton" onMouseClicked="#loadUsersClick" prefHeight="100.0" prefWidth="250.0"
+                           ripplerFill="WHITE" style="-fx-background-color: #A0A0A0;" text="Load Users">
+                    <HBox.margin>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                    </HBox.margin>
+                </JFXButton>
+                <JFXButton fx:id="loadOtherButton" onMouseClicked="#loadAdvancedClick" prefHeight="100.0"
+                           prefWidth="250.0" ripplerFill="WHITE" style="-fx-background-color: #A0A0A0;" text="Advanced">
+                    <HBox.margin>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                    </HBox.margin>
+                </JFXButton>
+                <JFXButton fx:id="importDataButton" onMouseClicked="#importDataClick" prefHeight="100.0"
+                           prefWidth="250.0" ripplerFill="WHITE" style="-fx-background-color: #A0A0A0;"
+                           text="Import data">
+                    <HBox.margin>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                    </HBox.margin>
+                </JFXButton>
+                <JFXButton fx:id="exportDataButton" onMouseClicked="#exportDataClick" prefHeight="100.0"
+                           prefWidth="250.0" ripplerFill="WHITE" style="-fx-background-color: #A0A0A0;"
+                           text="Export data">
+                    <HBox.margin>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                    </HBox.margin>
+                </JFXButton>
+            </children>
+        </HBox>
+    </bottom>
+    <center>
+        <AnchorPane BorderPane.alignment="CENTER">
+            <children>
+                <TableView fx:id="tableView" onKeyPressed="#onKeyPressed" AnchorPane.bottomAnchor="0.0"
+                           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                        <TableColumn fx:id="idColumn" prefWidth="61.0" text="id"/>
+                        <TableColumn fx:id="usernameColumn" prefWidth="99.0" text="username"/>
+                        <TableColumn fx:id="saltColumn" minWidth="0.0" prefWidth="108.0" text="salt"/>
+                        <TableColumn fx:id="passwordColumn" prefWidth="331.0" text="password"/>
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
