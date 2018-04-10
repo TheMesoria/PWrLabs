@@ -68,7 +68,7 @@
     </role>
     <schema id="14" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-04-08.17:16:24.951</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-04-10.13:33:58.945</IntrospectionTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -108,8 +108,8 @@
     </schema>
     <schema id="26" parent="6" name="lab">
       <ObjectId>16398</ObjectId>
-      <IntrospectionTimestamp>2018-04-08.17:16:25.335</IntrospectionTimestamp>
-      <IntrospectionStateNumber>573</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-04-10.13:33:58.458</IntrospectionTimestamp>
+      <IntrospectionStateNumber>582</IntrospectionStateNumber>
       <Visible>1</Visible>
     </schema>
     <sequence id="27" parent="26" name="app_user_id_seq">
@@ -119,12 +119,34 @@
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <table id="28" parent="26" name="app_user">
+    <sequence id="28" parent="26" name="pc_id_seq">
+      <ObjectId>16409</ObjectId>
+      <StateNumber>576</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="29" parent="26" name="vendor_id_seq">
+      <ObjectId>16418</ObjectId>
+      <StateNumber>578</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <table id="30" parent="26" name="app_user">
       <ObjectId>16401</ObjectId>
       <Comment>Contains all app users known</Comment>
       <StateNumber>568</StateNumber>
     </table>
-    <column id="29" parent="28" name="id">
+    <table id="31" parent="26" name="pc">
+      <ObjectId>16411</ObjectId>
+      <StateNumber>582</StateNumber>
+    </table>
+    <table id="32" parent="26" name="vendor">
+      <ObjectId>16420</ObjectId>
+      <StateNumber>582</StateNumber>
+    </table>
+    <column id="33" parent="30" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -133,46 +155,150 @@
       <TypeId>23</TypeId>
       <SequenceName>lab.app_user_id_seq</SequenceName>
     </column>
-    <column id="30" parent="28" name="username">
+    <column id="34" parent="30" name="username">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>568</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="31" parent="28" name="salt">
+    <column id="35" parent="30" name="salt">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>568</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="32" parent="28" name="password">
+    <column id="36" parent="30" name="password">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>568</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="33" parent="28" name="app_user_id_uindex">
+    <index id="37" parent="30" name="app_user_id_uindex">
       <ObjectId>16405</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="34" parent="28" name="app_user_username_uindex">
+    <index id="38" parent="30" name="app_user_username_uindex">
       <ObjectId>16406</ObjectId>
       <ColNames>username</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="35" parent="28" name="app_user_salt_uindex">
+    <index id="39" parent="30" name="app_user_salt_uindex">
       <ObjectId>16407</ObjectId>
       <ColNames>salt</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="36" parent="28" name="app_user_password_uindex">
+    <index id="40" parent="30" name="app_user_password_uindex">
       <ObjectId>16408</ObjectId>
       <ColNames>password</ColNames>
       <Unique>1</Unique>
     </index>
+    <column id="41" parent="31" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>576</StateNumber>
+      <DefaultExpression>nextval(&apos;lab.pc_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>lab.pc_id_seq</SequenceName>
+    </column>
+    <column id="42" parent="31" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>576</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="43" parent="31" name="ram">
+      <Position>3</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>576</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="44" parent="31" name="vendor_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>576</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="45" parent="31" name="pc_id_uindex">
+      <ObjectId>16417</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="46" parent="31" name="pc_pkey">
+      <ObjectId>16415</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="47" parent="31" name="pc_pkey">
+      <ObjectId>16416</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>pc_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="48" parent="31" name="pc_vendor_id_fk">
+      <ObjectId>16429</ObjectId>
+      <ColNames>vendor_id</ColNames>
+      <RefTableId>16420</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>vendor</RefTableName>
+      <RefKeyName>vendor_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="49" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>578</StateNumber>
+      <DefaultExpression>nextval(&apos;lab.vendor_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>lab.vendor_id_seq</SequenceName>
+    </column>
+    <column id="50" parent="32" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>578</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="51" parent="32" name="nip">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>578</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="52" parent="32" name="vendor_id_uindex">
+      <ObjectId>16426</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="53" parent="32" name="vendor_pkey">
+      <ObjectId>16424</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="54" parent="32" name="vendor_name_uindex">
+      <ObjectId>16428</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="55" parent="32" name="vendor_nip_uindex">
+      <ObjectId>16427</ObjectId>
+      <ColNames>nip</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="56" parent="32" name="vendor_pkey">
+      <ObjectId>16425</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>vendor_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>

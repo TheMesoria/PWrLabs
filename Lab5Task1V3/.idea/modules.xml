@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/5lab.iml" filepath="$PROJECT_DIR$/.idea/modules/5lab.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/5lab_main.iml" filepath="$PROJECT_DIR$/.idea/modules/5lab_main.iml" group="5lab" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/5lab_test.iml" filepath="$PROJECT_DIR$/.idea/modules/5lab_test.iml" group="5lab" />
+      <module fileurl="file://$PROJECT_DIR$/Lab5Task1V3.iml" filepath="$PROJECT_DIR$/Lab5Task1V3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab5Task1V3sd.iml" filepath="$PROJECT_DIR$/Lab5Task1V3sd.iml" />
     </modules>
   </component>
 </project>

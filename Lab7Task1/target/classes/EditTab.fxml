@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="300.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.EditTabController">
+    <center>
+        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="400.0" prefWidth="100.0">
+                <Label text="id">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="25.0"/>
+                    </VBox.margin>
+                </Label>
+                <Label text="name">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                    </VBox.margin>
+                </Label>
+                <Label text="ram">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                    </VBox.margin>
+                </Label>
+                <Label ellipsisString="" text="vendor_id">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="15.0" right="15.0" top="20.0"/>
+                    </VBox.margin>
+                </Label>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="467.0" prefWidth="200.0">
+                <HBox.margin>
+                    <Insets/>
+                </HBox.margin>
+                <JFXTextField fx:id="idArea">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="15.0"/>
+                    </VBox.margin>
+                </JFXTextField>
+                <JFXTextField fx:id="nameArea" layoutX="10.0" layoutY="10.0">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="15.0"/>
+                    </VBox.margin>
+                </JFXTextField>
+                <JFXTextField fx:id="ramArea" layoutX="10.0" layoutY="36.0">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="15.0"/>
+                    </VBox.margin>
+                </JFXTextField>
+                <JFXTextField fx:id="vendorIdArea" layoutX="10.0" layoutY="62.0">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="15.0"/>
+                    </VBox.margin>
+                </JFXTextField>
+            </VBox>
+        </HBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <JFXButton fx:id="updateButton" onMouseClicked="#onMouseUpdateClick" prefHeight="35.0" prefWidth="80.0"
+                       ripplerFill="WHITE" style="-fx-background-color: #A0A0A0;" text="UPDATE"/>
+            <JFXButton fx:id="insertButton" onMouseClicked="#onMouseInsertClick" prefHeight="35.0" prefWidth="80.0"
+                       ripplerFill="WHITE" style="-fx-background-color: #A0A0A0;" text="INSERT"/>
+        </HBox>
+    </bottom>
+</BorderPane>

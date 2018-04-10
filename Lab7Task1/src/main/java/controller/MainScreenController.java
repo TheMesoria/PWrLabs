@@ -41,11 +41,12 @@ public class MainScreenController
 						userNameTextField.getText(),
 						userNameTextField.getText()))
 				{
-					ControllerManager.getInstance().getResourceScreenController().start();
 					Stage stage = new Stage();
 					Scene scene = new Scene(ControllerManager.getInstance().getResourceScreen());
 					stage.setScene(scene);
 					stage.showAndWait();
+					mainPane.setVisible(false);
+					System.exit(0);
 				} else
 				{
 					infoLabel.setText("Login failed.");
@@ -59,6 +60,7 @@ public class MainScreenController
 								passwordField.getText()
 						))
 				{
+					userNameTextField.requestFocus();
 					userNameTextField.setText("");
 					passwordField.setText("");
 					updateStatus();

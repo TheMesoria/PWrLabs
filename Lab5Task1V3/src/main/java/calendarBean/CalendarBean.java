@@ -18,86 +18,92 @@ import java.io.IOException;
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
 
-public class CalendarBean extends AnchorPane {
-    @FXML
-    private CheckBox activeCheckBox;
-    @FXML
-    private Button butonButon;
-    @FXML
-    private Label label;
+public class CalendarBean extends AnchorPane
+{
+	@FXML
+	private CheckBox activeCheckBox;
+	@FXML
+	private Button butonButon;
+	@FXML
+	private Label label;
 
-    private SimpleIntegerProperty clickLimit;
-    private SimpleIntegerProperty clicks;
+	private SimpleIntegerProperty clickLimit;
+	private SimpleIntegerProperty clicks;
 
-    public int getClickLimit()
-    {
-        return clickLimit.get();
-    }
+	public int getClickLimit()
+	{
+		return clickLimit.get();
+	}
+	public SimpleIntegerProperty clickLimitProperty()
+	{
+		return clickLimit;
+	}
+	public void setClickLimit(int clickLimit)
+	{
+		this.clickLimit.set(clickLimit);
+	}
+	public int getClicks()
+	{
+		return clicks.get();
+	}
+	public SimpleIntegerProperty clicksProperty()
+	{
+		return clicks;
+	}
+	public void setClicks(int clicks)
+	{
+		this.clicks.set(clicks);
+	}
 
-    public SimpleIntegerProperty clickLimitProperty()
-    {
-        return clickLimit;
-    }
+	@FXML
+	void onMouseClicked(MouseEvent event)
+	{
+		if (activeCheckBox.isSelected() && getClickLimit() > getClicks())
+		{
+			setClicks(clicks.get() + 1);
+			label.setText(Integer.toString(getClicks()));
+		}
+	}
 
-    public void setClickLimit(int clickLimit)
-    {
-        this.clickLimit.set(clickLimit);
-    }
+	public CalendarBean()
+	{
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
+				"/CalendarBean.fxml"));
+		fxmlLoader.setRoot(this);
+		fxmlLoader.setController(this);
 
-    public int getClicks()
-    {
-        return clicks.get();
-    }
+		try
+		{
+			fxmlLoader.load();
+		} catch (IOException exception)
+		{
+			throw new RuntimeException(exception);
+		}
+	}
 
-    public SimpleIntegerProperty clicksProperty()
-    {
-        return clicks;
-    }
-
-    public void setClicks(int clicks)
-    {
-        this.clicks.set(clicks);
-    }
-
-    @FXML
-    void onMouseClicked(MouseEvent event) {
-        if(activeCheckBox.isSelected() && getClickLimit() > getClicks()){
-            setClicks(clicks.get()+1);
-            label.setText(Integer.toString(getClicks()));
-        }
-    }
-
-    public CalendarBean() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
-                "/CalendarBean.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-    }
-
-    @FXML
-    public void initialize() {
-    }
+	@FXML
+	public void initialize()
+	{
+	}
 
 
+	public void setActive(boolean isActive)
+	{
+		activeCheckBox.selectedProperty().setValue(isActive);
+	}
+	public boolean getActive()
+	{
+		return activeCheckBox.selectedProperty().get();
+	}
+	public BooleanProperty activeProperty()
+	{
+		return activeCheckBox.selectedProperty();
+	}
 
-    public void setActive(boolean isActive){
-        activeCheckBox.selectedProperty().setValue(isActive);
-    }
-    public boolean getActive(){
-        return activeCheckBox.selectedProperty().get();
-    }
-    public BooleanProperty activeProperty(){
-        return activeCheckBox.selectedProperty();
-    }
-
-    public void statusCheckBoxPressed(ActionEvent actionEvent) {
-        if (activeCheckBox.isSelected()) {
-        }
-    }
+	public void statusCheckBoxPressed(ActionEvent actionEvent)
+	{
+		if (activeCheckBox.isSelected())
+		{
+		}
+	}
 }
