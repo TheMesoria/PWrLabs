@@ -4,9 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -19,9 +17,12 @@ import mo.PC;
 import mo.PcVendor;
 import mo.User;
 
-import java.net.URL;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.transform.Result;
+import java.io.File;
 import java.sql.ResultSet;
-import java.util.ResourceBundle;
 
 public class ResourcePreviewController
 {
@@ -52,13 +53,48 @@ public class ResourcePreviewController
 	@FXML
 	void exportDataClick(MouseEvent event)
 	{
+		try
+		{
 
+			JAXBContext jc = JAXBContext.newInstance(User.class);
+			Marshaller ms = jc.createMarshaller();
+			ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			for(User user : observableList)
+			{
+				ms.marshal(user, System.out);
+				File file = new File("src/main/resources/xml/"+user.getUsername()+".xml");
+				file.createNewFile();
+				ms.marshal(user, file);
+			}
+
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+			System.err.println("MESSAGE: "+e.getMessage());
+		}
 	}
 
 	@FXML
 	void importDataClick(MouseEvent event)
 	{
+		try
+		{
+			File folder = new File("src/main/resources/xml/");
+			File[] listOfFiles = folder.listFiles();
 
+			JAXBContext jc = JAXBContext.newInstance(User.class);
+			Unmarshaller ums = jc.createUnmarshaller();
+
+			for(File file : listOfFiles)
+			{
+				System.out.println(file.getPath());
+				User usr = (User) ums.unmarshal(file);
+				observableList.add(usr);
+			}
+		}catch(Exception e)
+		{
+			System.out.println("MESSAGE: "+e.getMessage());
+		}
 	}
 
 	@FXML

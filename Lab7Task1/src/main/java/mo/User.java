@@ -1,9 +1,18 @@
 package mo;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="User")
 public class User
 {
 	int id;
 	String username,salt,password;
+	public User()
+	{
+	}
+
+	@XmlElement
 	public int getId()
 	{
 		return id;
@@ -12,6 +21,7 @@ public class User
 	{
 		this.id = id;
 	}
+	@XmlElement
 	public String getUsername()
 	{
 		return username;
@@ -20,6 +30,7 @@ public class User
 	{
 		this.username = username;
 	}
+	@XmlElement
 	public String getSalt()
 	{
 		return salt;
@@ -28,6 +39,7 @@ public class User
 	{
 		this.salt = salt;
 	}
+	@XmlElement
 	public String getPassword()
 	{
 		return password;

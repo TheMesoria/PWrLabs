@@ -57,7 +57,7 @@ public class DataBaseController
 			String output = String.format("%032X", new BigInteger(1, md5sum));
 
 			System.err.println(output + " == " + hashedPassword);
-			return output.equals(hashedPassword);
+			return output.compareTo(hashedPassword)==0;
 
 		} catch (Exception e)
 		{
