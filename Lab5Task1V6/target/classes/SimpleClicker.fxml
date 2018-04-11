@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="simpleClicker.SimpleClicker">
+    <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="400.0" prefWidth="648.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <HBox alignment="CENTER" layoutX="153.0" layoutY="48.0" prefHeight="100.0" prefWidth="200.0"
+                  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                  AnchorPane.topAnchor="0.0">
+                <Label text="Constrain:">
+                    <HBox.margin>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="counterLabel" text="Enabled">
+                    <HBox.margin>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="alarmStatus" text="WAITING">
+                    <HBox.margin>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+                    </HBox.margin>
+                </Label>
+            </HBox>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <HBox alignment="CENTER" layoutX="345.0" layoutY="34.0" prefHeight="100.0" prefWidth="200.0"
+                  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                  AnchorPane.topAnchor="0.0">
+                <Button fx:id="clickerButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                        onMouseClicked="#onMouseClicked" text="Clicker">
+                    <HBox.margin>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+                    </HBox.margin>
+                </Button>
+                <Label fx:id="triggerStatus" alignment="CENTER" contentDisplay="CENTER" text="Trigger Disabled">
+                    <HBox.margin>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+                    </HBox.margin>
+                </Label>
+            </HBox>
+        </AnchorPane>
+    </SplitPane>
+</fx:root>
