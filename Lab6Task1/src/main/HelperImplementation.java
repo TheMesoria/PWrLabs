@@ -3,9 +3,7 @@ package main;
 import main.interfaces.Helper;
 import main.interfaces.Server;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.rmi.AlreadyBoundException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -35,6 +33,21 @@ public class HelperImplementation extends UnicastRemoteObject implements Helper
 		if (collection_.containsKey(fileChunk.getFileName_())) return false;
 
 		collection_.putIfAbsent(fileChunk.getFileName_(), fileChunk);
+		File file = new File(name+"/"+new Random().nextInt());
+		System.out.println(file.getPath());
+		try
+		{
+			file.createNewFile();
+			System.out.println(file.getAbsolutePath());
+			BufferedWriter bw = new BufferedWriter(new FileWriter(file.getAbsoluteFile()));
+			bw.write(fileChunk.getContent_().toString());
+			bw.flush();
+		} catch (Exception e)
+		{
+			System.out.println(""+e.getMessage());
+			System.out.println("Error");
+			return false;
+		}
 		return true;
 	}
 
@@ -51,7 +64,6 @@ public class HelperImplementation extends UnicastRemoteObject implements Helper
 	{
 		System.out.println("Attempting read on: " + name);
 		if (!collection_.containsKey(name)) return null;
-
 		return collection_.get(name);
 	}
 
@@ -65,6 +77,7 @@ public class HelperImplementation extends UnicastRemoteObject implements Helper
 		Server server = (Server) registry.lookup("Server");
 		server.registerNode(name);
 
+		new File(name).mkdir();
 
 		boolean done = false;
 		String name;

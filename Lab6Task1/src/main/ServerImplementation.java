@@ -72,7 +72,7 @@ public class ServerImplementation extends UnicastRemoteObject implements Server
 		if(nodes_.size()<3) return;
 		FileChunk fileChunk = new FileChunk(path);
 		FileChunk[] fileChunks = fileChunk.splitInto(nodes_.size());
-		for (int i = 0; i < nodes_.size(); i++)
+		for (int i = 0; i < 3; i++)
 		{
 			Helper helper = (Helper) registry.lookup(nodes_.get(i));
 			if (helper.acceptFileChunk(fileChunks[i]))
