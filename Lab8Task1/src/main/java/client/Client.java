@@ -14,6 +14,7 @@ import java.nio.charset.Charset;
 
 public class Client {
     private String name;
+    boolean configured=false;
     boolean done=false;
 
     Socket parent; // Will not receive
@@ -33,13 +34,17 @@ public class Client {
             String soapMessage;
             while (!done)
             {
-
+                if(!configured && child!=null && parent!=null)
+                {
+                    System.out.println("Configured.");
+                }
                 soapMessage = (String) input.readObject();
                 if(soapMessage!=null)
                 {
-                    reactToMessage(getSoapMessageFromString(soapMessage));
+                    reactToMessage(Worker.getSoapMessageFromString(soapMessage));
                     soapMessage=null;
                 }
+                Thread.sleep(1000);
             }
         }
         catch (Exception e)
@@ -52,12 +57,28 @@ public class Client {
         if(msg.getSOAPHeader().getValue().equals("CONN-IN"))
         {
             System.out.println("Detected configuration changes...");
+            System.out.println("localhost:"+msg.getSOAPBody().getChildElements().next().getValue());
             parent = new Socket(
                     InetAddress.getByName("localhost"),
                     Integer.parseInt(msg.getSOAPBody().getChildElements().next().getValue())
             );
 
             input = new ObjectInputStream(parent.getInputStream());
+        }
+        else if(msg.getSOAPHeader().getValue().equals("CONN-OUT-"+name))
+        {
+            System.out.println("Detected configuration changes...");
+            child = new Socket(
+                    InetAddress.getByName("localhost"),
+                    Integer.parseInt(msg.getSOAPBody().getChildElements().next().getValue())
+            );
+
+            output = new ObjectOutputStream(child.getOutputStream());
+        }
+        else if(msg.getSOAPHeader().getValue().length()>9 &&
+                msg.getSOAPHeader().getValue().substring(0,9).equals("CONN-OUT-"))
+        {
+            System.out.println("Configuration request send to child.");
         }
         else if(msg.getSOAPHeader().getValue().equals("CONN-OUT"))
         {
@@ -98,6 +119,17 @@ public class Client {
             );
             sendMessage(msg);
         }
+        else if(msg.getSOAPHeader().getValue().equals("INTRD"))
+        {
+            System.out.println("Introduction requested.");
+            sendMessage(Worker.createMessage("INTRD-R",name));
+        }
+        else if(msg.getSOAPHeader().getValue().equals("CFG"))
+        {
+            System.out.println("Configuration request.");
+            if(configured) sendMessage(Worker.createMessage("CFG-R","YES"));
+            else sendMessage(Worker.createMessage("CFG-R","NO"));
+        }
         else if(msg.getSOAPHeader().getValue().equals("KILL"))
         {
             System.out.println("REQUESTED EXIT.");
@@ -115,14 +147,9 @@ public class Client {
             }
         }
     }
-    /**@brief sends message
-     *
-     * @param msg
-     * @throws Exception
-     */
     private void sendMessage(SOAPMessage msg) throws Exception
     {
-        msg.writeTo(new PrintStream(child.getOutputStream(),true));
+       Worker.sendMessage(msg,output);
     }
 
     private void setup(String[] args)
@@ -145,6 +172,7 @@ public class Client {
                     System.exit(-1);
                 }
                 System.out.println("Connection established.");
+                System.out.println("Awaiting configuration...");
             }
             else if(args[i].toLowerCase().equals("--name"))
             {
@@ -152,9 +180,5 @@ public class Client {
             }
         }
     }
-    private SOAPMessage getSoapMessageFromString(String xml) throws IOException, SOAPException {
-        MessageFactory factory = MessageFactory.newInstance();
-        SOAPMessage message = factory.createMessage(new MimeHeaders(), new ByteArrayInputStream(xml.getBytes(Charset.forName("UTF-8"))));
-        return message;
-    }
+
 }

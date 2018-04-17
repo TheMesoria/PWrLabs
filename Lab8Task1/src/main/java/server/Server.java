@@ -14,11 +14,15 @@ import java.net.Socket;
 import java.util.LinkedList;
 
 public class Server {
+    private boolean done = false;
     private String name;
     private ServerSocket activeServerSocket;
     private LinkedList<Socket> propagationLayers = new LinkedList<>();
+    private LinkedList<ObjectInputStream> propagationLayerReaders = new LinkedList<>();
     private Socket outputConnection=null;
     private Socket inputConnection=null;
+    private Socket serverConnection=null;
+    private ObjectInputStream inputListener;
     public Server(String[] args)
     {
         setup(args);
@@ -34,9 +38,13 @@ public class Server {
             while(true)
             {
                 Socket socket = activeServerSocket.accept();
+                if(serverConnection.getLocalPort()==socket.getPort()){System.out.println("Server Listener detected.");continue;}
+
                 System.out.println("Connected: "+socket.getInetAddress()+":"+socket.getPort());
 
                 if(inputConnection==null && outputConnection==null) handleFirstNode(socket);
+                else if(configured(socket))handleNode(socket);
+
             }
         }
         catch(Exception e)
@@ -44,34 +52,115 @@ public class Server {
             e.printStackTrace();
         }
     }
+    private boolean configured(Socket socket)
+    {
+        try
+        {
+            handleFirstNode(socket);
+            ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+            Thread.sleep(1000);
+            SOAPMessage soapMessage = Worker.createMessage("CFG",""); oos.flush();
+            Worker.sendMessage(soapMessage,oos);
+
+            String response,targetRes;
+            while(true)
+            {
+                response = (String) ois.readObject();
+                if(response==null)
+                {
+                    targetRes = Worker.getSoapMessageFromString(response)
+                            .getSOAPBody().getChildElements()
+                            .next().getValue();
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
     public void handleMessages()
     {
-        System.out.println("woohoo");
+        String soapMessage=null;
+        try
+        {
+            while (!done)
+            {
+                if(inputListener!=null)
+                    soapMessage = (String) inputListener.readObject();
+                if(soapMessage!=null)
+                {
+                    reactToMessage(Worker.getSoapMessageFromString(soapMessage));
+                    soapMessage=null;
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
+//    public void sendConfRequest
 
 
+    private void handleNode(Socket socket)
+    {
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+            SOAPMessage soapMessage = Worker.createMessage("INTRD","");
+            oos.flush();
+            Worker.sendMessage(soapMessage,oos);
+
+            String response,targetName;
+            while(true)
+            {
+                response = (String) ois.readObject();
+                if(response==null)
+                {
+                    targetName = Worker.getSoapMessageFromString(response)
+                            .getSOAPBody().getChildElements()
+                            .next().getValue();
+                    break;
+                }
+            }
+
+            SOAPMessage soapMessageChangeOutputPortTo = Worker.createMessage("CONN-OUT-"+targetName,
+                    Integer.toString(socket.getPort())
+            );
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     private void handleFirstNode(Socket socket) throws Exception
     {
+        System.out.println("Configuring first node");
         inputConnection=socket;
         outputConnection=socket;
 
-        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-        out.flush();
-        sendMessage(Worker.createMessage(
+        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());out.flush();
+        System.out.println(serverConnection.getLocalPort());
+        Worker.sendMessage(Worker.createMessage(
                 "CONN-OUT",
-                ""+activeServerSocket.getLocalPort()
+                ""+serverConnection.getLocalPort()
                 ),
                 out
         );
-        sendMessage(Worker.createMessage(
-                "CONN-IN",
-                ""+activeServerSocket.getLocalPort()
-                ),
-                out
-        );
+        System.out.println("First node configured");
+        out.reset();
     }
     private void reactToMessage(SOAPMessage msg) throws Exception
     {
+        if(msg.getSOAPHeader().getValue().equals("INTRD-R"))
+        {
+            System.out.println("INCOMING INTRODUCTION: "+msg
+                    .getSOAPBody()
+                    .getChildElements()
+                    .next()
+                    .getValue());
+        }
         if(msg.getSOAPHeader().getValue().equals("MSG-"+name))
         {
             System.out.println("Private Message: "+msg
@@ -108,15 +197,6 @@ public class Server {
         }
     }
 
-    private void sendMessage(SOAPMessage msg, ObjectOutputStream out) throws IOException, SOAPException {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        msg.writeTo(baos);
-        String strMsg = new String(baos.toByteArray());
-        System.out.println(strMsg);
-        out.writeObject(strMsg);
-        out.flush();
-    }
-
     void setup(String[] args)
     {
         for(int i = 0; i<args.length; i++)
@@ -126,6 +206,7 @@ public class Server {
                 try
                 {
                     activeServerSocket = new ServerSocket(Integer.parseInt(args[++i]),100);
+                    serverConnection = new Socket("localhost",activeServerSocket.getLocalPort());
                 }catch (Exception e){e.printStackTrace();}
             }
             else if(args[i].toLowerCase().equals("--name"))

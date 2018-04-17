@@ -30,6 +30,31 @@ public class Worker {
 
         return soapMsg;
     }
+    public static SOAPMessage createMessage(String headerVal, String... msgValues) throws SOAPException {
+        MessageFactory factory = MessageFactory.newInstance();
+        SOAPMessage soapMsg = factory.createMessage();
+        SOAPPart part = soapMsg.getSOAPPart();
+
+        SOAPEnvelope envelope = part.getEnvelope();
+        SOAPHeader header = envelope.getHeader();
+        SOAPBody body = envelope.getBody();
+
+        header.setValue(headerVal);
+
+        for(String msgValue : msgValues)
+        {
+            SOAPBodyElement element =
+                    body.addBodyElement(
+                            envelope.createName(
+                                    "JAVA",
+                                    "prefix",
+                                    "val:"+msgValue
+                            ));
+            element.setValue(msgValue);
+        }
+
+        return soapMsg;
+    }
     public static SOAPMessage getSoapMessageFromString(String xml) throws IOException, SOAPException {
         MessageFactory factory = MessageFactory.newInstance();
         SOAPMessage message = factory.createMessage(new MimeHeaders(), new ByteArrayInputStream(xml.getBytes(Charset.forName("UTF-8"))));
