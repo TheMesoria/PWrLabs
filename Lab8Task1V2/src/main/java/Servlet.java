@@ -5,6 +5,7 @@ import javax.xml.soap.SOAPMessage;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.io.WriteAbortedException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -26,10 +27,19 @@ public class Servlet {
     {
         try
         {
+            Thread thread = new Thread(this::handleMessages);
+            thread.start();
             System.out.println("Server started as: "+activeServerSocket.getInetAddress()+":"+activeServerSocket.getLocalPort());
+            if(!buddieSocketList.isEmpty())
+            {
+                ObjectOutputStream oos = new ObjectOutputStream(buddieSocketList.getFirst().getOutputStream());
+                Worker.sendMessage(Worker.createMessage("BRO",Integer.toString(activeServerSocket.getLocalPort())), oos);
+                System.out.println("Confirming buddie");
+            }
             while(true)
             {
                 Socket socket = activeServerSocket.accept();
+                slaveSocket=socket;
                 System.out.println("Connected: "+socket.getInetAddress()+":"+socket.getPort());
             }
         }catch(Exception e)
@@ -39,13 +49,35 @@ public class Servlet {
     }
     public void handleMessages()
     {
+        try
+        {
+            while(slaveSocket==null){Thread.sleep(1000);}
+            SOAPMessage responseSOAP;
+            ObjectInputStream objectInputStream = new ObjectInputStream(slaveSocket.getInputStream());
+            String response=null;
 
+            response=(String)objectInputStream.readObject();
+            responseSOAP=Worker.getSoapMessageFromString(response);
+            handleMessages(responseSOAP);
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
     public void checkBuddy(Socket socket) throws Exception
     {
+        System.out.println("Responding to buddy call...");
         SOAPMessage msg = Worker.createMessage("BRO",Integer.toString(activeServerSocket.getLocalPort()));
-        ObjectOutputStream objectInputStream = new ObjectOutputStream(socket.getOutputStream());
-        Worker.sendMessage(msg, objectInputStream);
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+        SOAPMessage responseSOAP;
+        ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
+        String response=null;
+        Worker.sendMessage(msg, objectOutputStream);
+
+        response=(String)objectInputStream.readObject();
+        responseSOAP=Worker.getSoapMessageFromString(response);
+
+        System.out.println("Buddy call rejected.");
     }
     void setup(String[] args)
     {
@@ -76,6 +108,36 @@ public class Servlet {
                             ));
                 } catch (Exception e) {e.printStackTrace();}
             }
+        }
+    }
+    void handleMessages(SOAPMessage msg)
+    {
+        try
+        {
+            switch(msg.getSOAPHeader().getValue())
+            {
+                case "BRO":
+                    int port=Integer.parseInt(msg.getSOAPBody().getChildElements().next().getValue());
+                    for(Socket socketVar:buddieSocketList)
+                    {
+                        if(socketVar.getLocalPort()==port)
+                        {
+                            Worker.sendMessage(
+                                    Worker.createMessage(
+                                            "BRO-R",
+                                            "YES"
+                                    )
+                            );
+                            System.out.println("Buddy call confirmed.");
+                        }
+                    }
+                    break;
+
+            }
+        }
+        catch(Exception e)
+        {
+
         }
     }
 }
