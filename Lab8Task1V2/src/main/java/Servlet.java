@@ -34,7 +34,7 @@ public class Servlet {
             {
                 ObjectOutputStream oos = new ObjectOutputStream(buddieSocketList.getFirst().getOutputStream());
                 Worker.sendMessage(Worker.createMessage("BRO",Integer.toString(activeServerSocket.getLocalPort())), oos);
-                System.out.println("Confirming buddie");
+                System.out.println("Confirming buddy");
             }
             while(true)
             {
@@ -118,18 +118,13 @@ public class Servlet {
             {
                 case "BRO":
                     int port=Integer.parseInt(msg.getSOAPBody().getChildElements().next().getValue());
-                    for(Socket socketVar:buddieSocketList)
+                    System.out.println(port);
+                    boolean add = false;
+                    for(Socket socket:buddieSocketList)
                     {
-                        if(socketVar.getLocalPort()==port)
-                        {
-                            Worker.sendMessage(
-                                    Worker.createMessage(
-                                            "BRO-R",
-                                            "YES"
-                                    )
-                            );
-                            System.out.println("Buddy call confirmed.");
-                        }
+                        System.out.println(socket.getPort());
+                        if(socket.getPort()==port) return;
+                        buddieSocketList.add(new Socket("localhost", port));
                     }
                     break;
 

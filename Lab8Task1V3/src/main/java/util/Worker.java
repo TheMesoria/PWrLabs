@@ -48,9 +48,9 @@ public class Worker {
             SOAPHeaderElement headerElement =
                     header.addHeaderElement(
                             envelope.createName(
-                                    "HEADER"+Integer.toString(i),
-                                    "HEADER"+Integer.toString(i),
-                                    "HEADER"+Integer.toString(i++)
+                                    "HEADER-"+Integer.toString(i),
+                                    "HEADER-"+Integer.toString(i),
+                                    "HEADER-"+Integer.toString(i++)
                             )
                     );
             headerElement.setValue(headerVal);
