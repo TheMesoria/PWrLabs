@@ -28,8 +28,12 @@ public class ServletFactory {
                     break;
                 case "--master":
                     servlet.master=args[++i];
-                    System.out.println(servlet.master);
                     servlet.handleNewSocketConnection(Integer.parseInt(servlet.master),false);
+                    break;
+                case "--slave":
+                    System.out.println("FORCE SLAVE IS ON");
+                    servlet.slavePort=args[++i];
+                    servlet.handleNewSocketConnection(Integer.parseInt(servlet.slavePort),false);
                     break;
             }
         }

@@ -37,21 +37,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Servlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4163#4164#0" expanded="true" />
-                <element signature="e#4232#4233#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageWrapper.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MessageWrapper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/util/MessageWrapper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="181">
@@ -65,11 +51,38 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Servlet.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="138" column="56" selection-start-line="138" selection-start-column="56" selection-end-line="138" selection-end-column="56" />
+              <folding>
+                <element signature="method#server#0;class#Servlet#0" />
+                <element signature="method#handleNewSocketConnection#0;class#Servlet#0" />
+                <element signature="method#handleCommunication#0;class#Servlet#0" />
+                <element signature="method#handleCommunication#1;class#Servlet#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServletFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlet/ServletFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="35" column="88" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="88" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Worker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/util/Worker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="71" selection-start-line="71" selection-end-line="71" />
+            <state relative-caret-position="172">
+              <caret line="69" selection-start-line="69" selection-end-line="69" />
               <folding>
                 <element signature="method#createMessage#0;class#Worker#0" />
                 <element signature="method#createMessage#1;class#Worker#0" />
@@ -91,6 +104,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>ObjectInputStream</find>
+      <find>WOW</find>
+      <find>slave</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -98,9 +113,9 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/servlet/ServletFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/MessageWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/Worker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlet/ServletFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlet/Servlet.java" />
       </list>
     </option>
@@ -276,12 +291,12 @@
       <updated>1524045828324</updated>
       <workItem from="1524045833552" duration="403000" />
       <workItem from="1524046353793" duration="2274000" />
-      <workItem from="1524408616148" duration="11574000" />
+      <workItem from="1524408616148" duration="15973000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14251000" />
+    <option name="totallyTimeSpent" value="18650000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1987" y="27" width="1853" height="1173" extended-state="6" />
@@ -327,15 +342,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java</url>
-          <line>104</line>
-          <properties />
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="25" />
+      <option name="time" value="32" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -424,17 +431,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/ServletFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#createServlet#0;class#ServletFactory#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -445,26 +441,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/Worker.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/ServletFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
-          <folding>
-            <element signature="method#createMessage#0;class#Worker#0" />
-            <element signature="method#createMessage#1;class#Worker#0" />
-            <element signature="method#getSoapMessageFromString#0;class#Worker#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="532">
+          <caret line="35" column="88" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="88" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4163#4164#0" expanded="true" />
-            <element signature="e#4232#4233#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -477,6 +459,31 @@
             <element signature="method#MessageWrapper#0;class#MessageWrapper#0" />
             <element signature="method#MessageWrapper#1;class#MessageWrapper#0" />
             <element signature="method#toString#0;class#MessageWrapper#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/Worker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="method#createMessage#0;class#Worker#0" />
+            <element signature="method#createMessage#1;class#Worker#0" />
+            <element signature="method#getSoapMessageFromString#0;class#Worker#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="138" column="56" selection-start-line="138" selection-start-column="56" selection-end-line="138" selection-end-column="56" />
+          <folding>
+            <element signature="method#server#0;class#Servlet#0" />
+            <element signature="method#handleNewSocketConnection#0;class#Servlet#0" />
+            <element signature="method#handleCommunication#0;class#Servlet#0" />
+            <element signature="method#handleCommunication#1;class#Servlet#0" />
           </folding>
         </state>
       </provider>

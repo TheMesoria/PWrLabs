@@ -14,6 +14,7 @@ public class Servlet {
     String name;
     String zone;
     String master;
+    String slavePort;
     Socket slave;
     ServerSocket serverSocket;
     LinkedList<Thread> threadLinkedList;
@@ -31,7 +32,7 @@ public class Servlet {
         MessageWrapper mw = new MessageWrapper(
                 "BROADCAST",
                 "NONE",
-                "NONE",
+                String.valueOf(serverSocket.getLocalPort()),
                 "NONE",
                 ""
         );
@@ -52,6 +53,7 @@ public class Servlet {
             while (true) {
                 Socket socket = serverSocket.accept();
                 knownOOS.putIfAbsent(socket,new ObjectOutputStream(socket.getOutputStream()));
+                System.out.println("New node detected!");
                 MessageWrapper messageWrapper = new MessageWrapper(
                         "SERVER-R",
                         String.valueOf(socket.getPort()),
@@ -62,7 +64,8 @@ public class Servlet {
                 messageWrapper.generateId();
                 pendingOrdersLinkedList.add(messageWrapper.getId());
                 Worker.sendMessage(messageWrapper.getMessage(), knownOOS.get(socket));
-                handleCommunication(socket);
+                Thread thread = new Thread (() -> handleCommunication(socket));
+                thread.start();
             }
         }catch (Exception e)
         {
@@ -74,20 +77,27 @@ public class Servlet {
         threadLinkedList.add(new Thread(() -> handleCommunication(port, isRegistered)));
     }
 
-    private void handleCommunication(Socket socket) throws Exception {
-        ObjectOutputStream oos = knownOOS.get(socket);
-        if(oos==null) knownOOS.put(socket,new ObjectOutputStream(socket.getOutputStream()));
-        ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
-        System.out.println("WOW");
-        String inc;
 
-        while (true) {
-            inc = (String) ois.readObject();
-            MessageWrapper messageWrapper = new MessageWrapper(
-                    Worker.getSoapMessageFromString(inc)
-            );
-            handleSOAPMessage(messageWrapper, socket);
+    private void handleCommunication(Socket socket){
+        try
+        {
+            ObjectOutputStream oos = knownOOS.get(socket);
+            if(oos==null) knownOOS.put(socket,new ObjectOutputStream(socket.getOutputStream()));
+            ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+            String inc;
 
+            while (true) {
+                inc = (String) ois.readObject();
+                MessageWrapper messageWrapper = new MessageWrapper(
+                        Worker.getSoapMessageFromString(inc)
+                );
+                System.out.println("Received: "+messageWrapper);
+                handleSOAPMessage(messageWrapper, socket);
+
+            }
+        }catch(Exception e)
+        {
+            e.printStackTrace();
         }
     }
 
@@ -106,20 +116,27 @@ public class Servlet {
             case "SERVER-R":
 
                 System.out.println("Received server request.");
+
                 msg.setType("SERVER-A");
                 String target = msg.getTarget();
                 msg.setTarget(msg.getSource());
                 msg.setSource(target);
 
+                System.out.println(msg.getTarget()+"," +master);
                 if (msg.getTarget().equals(master)) {
                     System.out.println("Detected master.");
                     msg.setMsg("NO");
-                } else {
+                } else if(slavePort!=null && slavePort.equals(String.valueOf(socket.getPort()))) {
+                    System.out.println("Detected slave!");
+                    slave = socket;
+                    msg.setMsg("CLOSE");
+                } else
+                {
                     System.out.println("Detected friend.");
                     msg.setMsg("YES");
                 }
-                System.out.println(msg);
-                Worker.sendMessage(msg.getMessage(), knownOOS.get(socket));
+                ObjectOutputStream oos = knownOOS.get(socket);
+                Worker.sendMessage(msg.getMessage(), oos);
 
                 break;
             case "SERVER-A":
@@ -127,20 +144,23 @@ public class Servlet {
                 System.out.println(msg.getSource() + " reported: " + msg.getMsg());
                 if(msg.getMsg().equals("YES"))
                     registeredConnections.add(socket);
-                else
+                else if(msg.getMsg().equals("NO"))
                     slave=socket;
+                else if(msg.getMsg().equals("CLOSE"))
+                    System.out.println("Detected a zone enclose!");
                 break;
             case "BROADCAST":
 
                 System.out.println("Incoming broadcast from: "+msg.getSource());
-                if(serverSocket.getLocalPort()==Integer.getInteger(msg.getSource()))
+                if(serverSocket.getLocalPort()==Integer.parseInt(msg.getSource()))
                 {
                     System.out.println("Self Broadcast detected. Killing.");
                     break;
                 }
                 System.out.println(msg.getMsg());
 
-                Worker.sendMessage(msg.getMessage(), knownOOS.get(slave));
+                if(slave!=null)
+                    Worker.sendMessage(msg.getMessage(), knownOOS.get(slave));
 
                 for(Socket regSocket : registeredConnections)
                 {
