@@ -37,15 +37,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Servlet.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Servlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="44" column="65" selection-start-line="44" selection-start-column="65" selection-end-line="44" selection-end-column="65" />
+            <state relative-caret-position="171">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#server#0;class#Servlet#0" />
-                <element signature="method#handleCommunication#1;class#Servlet#0" />
                 <element signature="e#4163#4164#0" expanded="true" />
                 <element signature="e#4232#4233#0" expanded="true" />
               </folding>
@@ -53,15 +51,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageWrapper.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MessageWrapper.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/util/MessageWrapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="107" column="54" selection-start-line="107" selection-start-column="54" selection-end-line="107" selection-end-column="54" />
+            <state relative-caret-position="181">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
               <folding>
                 <element signature="method#MessageWrapper#0;class#MessageWrapper#0" />
                 <element signature="method#MessageWrapper#1;class#MessageWrapper#0" />
-                <element signature="method#getMessage#0;class#MessageWrapper#0" />
                 <element signature="method#toString#0;class#MessageWrapper#0" />
               </folding>
             </state>
@@ -71,10 +68,11 @@
       <file leaf-file-name="Worker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/util/Worker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="75" column="1" lean-forward="true" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
+            <state relative-caret-position="236">
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
               <folding>
                 <element signature="method#createMessage#0;class#Worker#0" />
+                <element signature="method#createMessage#1;class#Worker#0" />
                 <element signature="method#getSoapMessageFromString#0;class#Worker#0" />
               </folding>
             </state>
@@ -89,6 +87,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ObjectInputStream</find>
+    </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -210,7 +213,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Lab8Task1V3" />
-      <option name="PROGRAM_PARAMETERS" value="--port 8000 --name ide --circle A" />
+      <option name="PROGRAM_PARAMETERS" value="--port 8000 --namide --circle A" />
       <option name="VM_PARAMETERS" value="--add-modules java.se.ee " />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     </configuration>
@@ -273,47 +276,47 @@
       <updated>1524045828324</updated>
       <workItem from="1524045833552" duration="403000" />
       <workItem from="1524046353793" duration="2274000" />
-      <workItem from="1524408616148" duration="8271000" />
+      <workItem from="1524408616148" duration="11574000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10948000" />
+    <option name="totallyTimeSpent" value="14251000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1987" y="27" width="1853" height="1173" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.32843137" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" x="0" y="0" width="413" height="973" id="Documentation" side_tool="true" weight="0.32982844" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32843137" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32982844" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info auto_hide="true" content_ui="combo" id="Project" order="0" weight="0.24958494" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32843137" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" x="0" y="0" width="413" height="973" id="Documentation" side_tool="true" weight="0.32982844" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32843137" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32982844" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info auto_hide="true" content_ui="combo" id="Project" order="0" weight="0.24958494" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,12 +330,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java</url>
-          <line>44</line>
+          <line>104</line>
           <properties />
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="25" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -359,6 +362,7 @@
           <caret line="52" column="44" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
           <folding>
             <element signature="method#createMessage#0;class#Worker#0" />
+            <element signature="method#createMessage#1;class#Worker#0" />
             <element signature="method#getSoapMessageFromString#0;class#Worker#0" />
           </folding>
         </state>
@@ -371,7 +375,6 @@
           <folding>
             <element signature="method#MessageWrapper#0;class#MessageWrapper#0" />
             <element signature="method#MessageWrapper#1;class#MessageWrapper#0" />
-            <element signature="method#getMessage#0;class#MessageWrapper#0" />
             <element signature="method#toString#0;class#MessageWrapper#0" />
           </folding>
         </state>
@@ -390,6 +393,7 @@
           <caret line="67" column="41" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
           <folding>
             <element signature="method#createMessage#0;class#Worker#0" />
+            <element signature="method#createMessage#1;class#Worker#0" />
             <element signature="method#getSoapMessageFromString#0;class#Worker#0" />
           </folding>
         </state>
@@ -413,44 +417,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-9-oracle/lib/src.zip!/java.base/java/lang/Runnable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="474">
           <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/Worker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="75" column="1" lean-forward="true" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
-          <folding>
-            <element signature="method#createMessage#0;class#Worker#0" />
-            <element signature="method#getSoapMessageFromString#0;class#Worker#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/MessageWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="107" column="54" selection-start-line="107" selection-start-column="54" selection-end-line="107" selection-end-column="54" />
-          <folding>
-            <element signature="method#MessageWrapper#0;class#MessageWrapper#0" />
-            <element signature="method#MessageWrapper#1;class#MessageWrapper#0" />
-            <element signature="method#getMessage#0;class#MessageWrapper#0" />
-            <element signature="method#toString#0;class#MessageWrapper#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -465,16 +435,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="44" column="65" selection-start-line="44" selection-start-column="65" selection-end-line="44" selection-end-column="65" />
+        <state relative-caret-position="54">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#server#0;class#Servlet#0" />
-            <element signature="method#handleCommunication#1;class#Servlet#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/Worker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+          <folding>
+            <element signature="method#createMessage#0;class#Worker#0" />
+            <element signature="method#createMessage#1;class#Worker#0" />
+            <element signature="method#getSoapMessageFromString#0;class#Worker#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#4163#4164#0" expanded="true" />
             <element signature="e#4232#4233#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/MessageWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="method#MessageWrapper#0;class#MessageWrapper#0" />
+            <element signature="method#MessageWrapper#1;class#MessageWrapper#0" />
+            <element signature="method#toString#0;class#MessageWrapper#0" />
           </folding>
         </state>
       </provider>

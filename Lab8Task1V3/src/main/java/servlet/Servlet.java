@@ -20,7 +20,6 @@ public class Servlet {
     LinkedList<Socket> registeredConnections;
     LinkedList<String> pendingOrdersLinkedList;
     HashMap<Socket,ObjectOutputStream> knownOOS = new HashMap<>();
-    HashMap<Socket,ObjectInputStream> knownOIS = new HashMap<>();
 
     public void start() throws Exception {
         init();
@@ -76,16 +75,19 @@ public class Servlet {
     }
 
     private void handleCommunication(Socket socket) throws Exception {
-        knownOIS.putIfAbsent(socket, new ObjectInputStream(socket.getInputStream()));
-        knownOOS.putIfAbsent(socket, new ObjectOutputStream(socket.getOutputStream()));
-        ObjectInputStream ois = knownOIS.get(socket);
+        ObjectOutputStream oos = knownOOS.get(socket);
+        if(oos==null) knownOOS.put(socket,new ObjectOutputStream(socket.getOutputStream()));
+        ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+        System.out.println("WOW");
+        String inc;
 
         while (true) {
+            inc = (String) ois.readObject();
             MessageWrapper messageWrapper = new MessageWrapper(
-                    Worker.getSoapMessageFromString((String) ois.readObject())
+                    Worker.getSoapMessageFromString(inc)
             );
-
             handleSOAPMessage(messageWrapper, socket);
+
         }
     }
 

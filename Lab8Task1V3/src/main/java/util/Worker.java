@@ -71,6 +71,5 @@ public class Worker {
         msg.writeTo(baos);
         String strMsg = new String(baos.toByteArray());
         out.writeObject(strMsg);
-        out.flush();
     }
 }
