@@ -42,7 +42,7 @@ public class Servlet {
         {
             String string = br.readLine();
             mw.setMsg(string);
-            Worker.sendMessage(mw.getMessage(),knownOOS.get(slave));
+            handleSOAPMessage(mw,null);
         }
 
     }
@@ -91,7 +91,6 @@ public class Servlet {
                 MessageWrapper messageWrapper = new MessageWrapper(
                         Worker.getSoapMessageFromString(inc)
                 );
-                System.out.println("Received: "+messageWrapper);
                 handleSOAPMessage(messageWrapper, socket);
 
             }
@@ -143,7 +142,10 @@ public class Servlet {
                 System.out.println("Received an answer.");
                 System.out.println(msg.getSource() + " reported: " + msg.getMsg());
                 if(msg.getMsg().equals("YES"))
+                {
+                    System.out.println("Adding friend.");
                     registeredConnections.add(socket);
+                }
                 else if(msg.getMsg().equals("NO"))
                     slave=socket;
                 else if(msg.getMsg().equals("CLOSE"))
@@ -152,7 +154,7 @@ public class Servlet {
             case "BROADCAST":
 
                 System.out.println("Incoming broadcast from: "+msg.getSource());
-                if(serverSocket.getLocalPort()==Integer.parseInt(msg.getSource()))
+                if(socket!=null && serverSocket.getLocalPort()==Integer.parseInt(msg.getSource()))
                 {
                     System.out.println("Self Broadcast detected. Killing.");
                     break;
@@ -166,7 +168,8 @@ public class Servlet {
                 {
                     if(socket == regSocket)
                     {
-                        System.out.println("Stopping resend.");
+                        System.out.print("Sending to friend: " + regSocket.getPort());
+                        System.out.println(" | Stopping resend - sender!");
                     }else
                     {
                         System.out.println("Sending to friend: " + regSocket.getPort());
