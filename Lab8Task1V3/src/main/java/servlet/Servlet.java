@@ -135,7 +135,7 @@ public class Servlet {
                     msg.setMsg("YES");
                 }
                 ObjectOutputStream oos = knownOOS.get(socket);
-                if(oos==null) knownOOS.put(socket,new ObjectOutputStream(socket.getOutputStream()));
+                if(oos==null) System.out.println("There is null as socket...");
                 Worker.sendMessage(msg.getMessage(), knownOOS.get(socket));
 
                 break;
@@ -153,6 +153,15 @@ public class Servlet {
                     System.out.println("Detected a zone enclose!");
                 break;
             case "BROADCAST":
+                for (String id:pendingOrdersLinkedList)
+                {
+                    if(id.equals(msg.getId())) {
+                        System.out.println("Broken retransmission... STOPPING");
+                        return;
+                    }
+
+                }
+                pendingOrdersLinkedList.add(msg.getId());
 
                 System.out.println("Incoming broadcast from: "+msg.getSource());
                 if(socket!=null && serverSocket.getLocalPort()==Integer.parseInt(msg.getSource()))

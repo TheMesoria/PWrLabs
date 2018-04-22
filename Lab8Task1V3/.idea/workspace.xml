@@ -19,12 +19,14 @@
       <file leaf-file-name="Servlet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="138" column="73" selection-start-line="138" selection-start-column="73" selection-end-line="138" selection-end-column="73" />
+            <state relative-caret-position="412">
+              <caret line="163" column="57" selection-start-line="163" selection-start-column="57" selection-end-line="163" selection-end-column="57" />
               <folding>
                 <element signature="method#server#0;class#Servlet#0" />
                 <element signature="method#handleNewSocketConnection#0;class#Servlet#0" />
                 <element signature="method#handleCommunication#1;class#Servlet#0" />
+                <element signature="e#6714#6715#0" expanded="true" />
+                <element signature="e#6783#6784#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -229,12 +231,12 @@
       <updated>1524045828324</updated>
       <workItem from="1524045833552" duration="403000" />
       <workItem from="1524046353793" duration="2274000" />
-      <workItem from="1524408616148" duration="16967000" />
+      <workItem from="1524408616148" duration="17385000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19644000" />
+    <option name="totallyTimeSpent" value="20062000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1987" y="27" width="1853" height="1173" extended-state="6" />
@@ -415,12 +417,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="138" column="73" selection-start-line="138" selection-start-column="73" selection-end-line="138" selection-end-column="73" />
+        <state relative-caret-position="412">
+          <caret line="163" column="57" selection-start-line="163" selection-start-column="57" selection-end-line="163" selection-end-column="57" />
           <folding>
             <element signature="method#server#0;class#Servlet#0" />
             <element signature="method#handleNewSocketConnection#0;class#Servlet#0" />
             <element signature="method#handleCommunication#1;class#Servlet#0" />
+            <element signature="e#6714#6715#0" expanded="true" />
+            <element signature="e#6783#6784#0" expanded="true" />
           </folding>
         </state>
       </provider>
