@@ -103,5 +103,8 @@ public class MessageWrapper {
         this.msg = msg;
     }
 
-    public void generateId(){this.id=new Random().doubles()}
+    public void generateId()
+    {
+        this.id= String.valueOf(new Random().nextInt());
+    }
 }
