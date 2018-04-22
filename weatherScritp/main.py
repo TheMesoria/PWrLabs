@@ -1,12 +1,17 @@
 import csv
+import math
 
-def calcE():
+
+def calcPartialSteamPressure(temperature):
+    return 6.112 * math.exp((17.67*(temperature-273.15))/(temperature-273.15+243.5))
 
 
-def calcZTD():
-    staticVar_1 = 0.002277
-    staticVar_2 = 1255
-    staticVar_3 = 0.05
+def calcE(relativeHumidity, partialSteamPressure):
+    return relativeHumidity * partialSteamPressure / 100
+
+
+def calcZTD(partialSteamSteamPressure, atmosphericPressure, temperature):
+    return 0.002277 * (atmosphericPressure + (1255 / temperature)+0.05)*partialSteamSteamPressure
 
 
 csvData = []
@@ -18,3 +23,5 @@ with open("daneLab02/surface_20150912_00.csv") as csvFile:
 for row in csvData:
     if row[3] == 'iterp':
         pass
+
+print(calcPartialSteamPressure(10))
