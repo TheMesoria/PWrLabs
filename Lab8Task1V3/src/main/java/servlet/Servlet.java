@@ -135,7 +135,8 @@ public class Servlet {
                     msg.setMsg("YES");
                 }
                 ObjectOutputStream oos = knownOOS.get(socket);
-                Worker.sendMessage(msg.getMessage(), oos);
+                if(oos==null) knownOOS.put(socket,new ObjectOutputStream(socket.getOutputStream()));
+                Worker.sendMessage(msg.getMessage(), knownOOS.get(socket));
 
                 break;
             case "SERVER-A":
