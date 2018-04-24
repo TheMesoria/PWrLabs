@@ -19,8 +19,8 @@
       <file leaf-file-name="Servlet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="202" column="23" selection-start-line="202" selection-start-column="23" selection-end-line="202" selection-end-column="23" />
+            <state relative-caret-position="147">
+              <caret line="208" lean-forward="true" selection-start-line="208" selection-end-line="208" />
               <folding>
                 <element signature="method#start#0;class#Servlet#0" />
                 <element signature="method#server#0;class#Servlet#0" />
@@ -101,61 +101,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Lab8Task1V3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Lab8Task1V3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Lab8Task1V3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Lab8Task1V3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Lab8Task1V3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Lab8Task1V3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Lab8Task1V3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Lab8Task1V3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Lab8Task1V3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Lab8Task1V3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="servlet" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Lab8Task1V3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Lab8Task1V3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Lab8Task1V3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Lab8Task1V3" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -249,14 +195,16 @@
       <workItem from="1524408616148" duration="17748000" />
       <workItem from="1524487235940" duration="7392000" />
       <workItem from="1524511880495" duration="601000" />
+      <workItem from="1524586650921" duration="263000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28418000" />
+    <option name="totallyTimeSpent" value="28681000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1987" y="27" width="1853" height="1173" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -266,8 +214,8 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32843137" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32843137" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -277,8 +225,8 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.43888888" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.43888888" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32843137" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -302,6 +250,33 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4242">
+          <caret line="202" column="23" selection-start-line="202" selection-start-column="23" selection-end-line="202" selection-end-column="23" />
+          <folding>
+            <element signature="method#start#0;class#Servlet#0" />
+            <element signature="method#server#0;class#Servlet#0" />
+            <element signature="method#handleNewSocketConnection#0;class#Servlet#0" />
+            <element signature="method#handleCommunication#0;class#Servlet#0" />
+            <element signature="method#handleCommunication#1;class#Servlet#0" />
+            <element signature="method#handleSOAPMessage#0;class#Servlet#0" />
+            <element signature="method#handleBroadcast#0;class#Servlet#0" />
+            <element signature="method#send#0;class#Servlet#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/ServletFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4242">
@@ -452,8 +427,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="202" column="23" selection-start-line="202" selection-start-column="23" selection-end-line="202" selection-end-column="23" />
+        <state relative-caret-position="147">
+          <caret line="208" lean-forward="true" selection-start-line="208" selection-end-line="208" />
           <folding>
             <element signature="method#start#0;class#Servlet#0" />
             <element signature="method#server#0;class#Servlet#0" />
