@@ -27,6 +27,7 @@ public class ServletFactory {
                     servlet.serverSocket = new ServerSocket(Integer.parseInt(args[++i]));
                     break;
                 case "--master":
+                    Thread.sleep(250);
                     servlet.master=args[++i];
                     servlet.handleNewSocketConnection(Integer.parseInt(servlet.master),false);
                     break;

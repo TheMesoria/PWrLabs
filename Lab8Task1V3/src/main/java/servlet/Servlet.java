@@ -3,9 +3,11 @@ package servlet;
 import util.MessageWrapper;
 import util.Worker;
 
+import javax.naming.ldap.SortKey;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.Wrapper;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.ServiceConfigurationError;
@@ -30,17 +32,35 @@ public class Servlet {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         MessageWrapper mw = new MessageWrapper(
-                "BROADCAST",
+                "NONE",
                 "NONE",
                 String.valueOf(serverSocket.getLocalPort()),
                 "NONE",
                 ""
         );
-        mw.generateId();
+        Thread.sleep(10000);
 
         while(true)
         {
+            System.out.println("Message value: ");
             String string = br.readLine();
+            System.out.println("Type: ");
+            String type = br.readLine();
+            mw.setType(type.toUpperCase());
+
+            if(mw.getType().toUpperCase().equals("ZONE"))
+            {
+                System.out.println("Give me target zone: ");
+                String tmp = br.readLine();
+                mw.setTarget(tmp);
+            }else if(mw.getType().toUpperCase().equals("PRIVATE"))
+            {
+                System.out.println("Give me target node: ");
+                String tmp = br.readLine();
+                mw.setTarget(tmp);
+            }
+
+            mw.generateId();
             mw.setMsg(string);
             handleSOAPMessage(mw,null);
         }
@@ -94,6 +114,9 @@ public class Servlet {
                 handleSOAPMessage(messageWrapper, socket);
 
             }
+        } catch (EOFException e)
+        {
+            System.out.println("Host ended session! -> "+socket.getPort());
         }catch(Exception e)
         {
             e.printStackTrace();
@@ -153,41 +176,106 @@ public class Servlet {
                     System.out.println("Detected a zone enclose!");
                 break;
             case "BROADCAST":
-                for (String id:pendingOrdersLinkedList)
-                {
-                    if(id.equals(msg.getId())) {
-                        System.out.println("Broken retransmission... STOPPING");
-                        return;
-                    }
-
-                }
-                pendingOrdersLinkedList.add(msg.getId());
-
-                System.out.println("Incoming broadcast from: "+msg.getSource());
-                if(socket!=null && serverSocket.getLocalPort()==Integer.parseInt(msg.getSource()))
-                {
-                    System.out.println("Self Broadcast detected. Killing.");
-                    break;
-                }
-                System.out.println(msg.getMsg());
-
-                if(slave!=null)
-                    Worker.sendMessage(msg.getMessage(), knownOOS.get(slave));
-
-                for(Socket regSocket : registeredConnections)
-                {
-                    if(socket == regSocket)
-                    {
-                        System.out.print("Sending to friend: " + regSocket.getPort());
-                        System.out.println(" | Stopping resend - sender!");
-                    }else
-                    {
-                        System.out.println("Sending to friend: " + regSocket.getPort());
-                        Worker.sendMessage(msg.getMessage(),knownOOS.get(regSocket));
-                    }
-                }
-
+                handleBroadcast(msg, socket);
                 break;
+            case "ZONE":
+                handleZone(msg,socket);
+                break;
+            case "PRIVATE":
+                handlePrivate(msg,socket);
+                break;
+        }
+    }
+
+    private void handleZone(MessageWrapper msg, Socket socket) throws Exception {
+        if(stopMessage(msg, socket)) return;
+
+        if(msg.getTarget().toUpperCase().equals(zone))
+        {
+            System.out.println("Detected zone message!");
+            System.out.println("Broadcasting to slaves!");
+            msg.setType("BROADCAST");
+        }else
+        {
+            System.out.println("Incoming broadcast... passing.");
+        }
+
+        send(msg,socket);
+    }
+
+    private void handlePrivate(MessageWrapper msg, Socket socket) throws Exception
+    {
+        if(stopMessage(msg, socket)) return;
+
+
+        if(msg.getTarget().equals(String.valueOf(serverSocket.getLocalPort())))
+        {
+            System.out.println("Detected Message: "+msg.getMsg());
+        }
+        else
+        {
+            System.out.println("Passing private Message...");
+        }
+
+        send(msg,socket);
+    }
+
+    private void handleBroadcast(MessageWrapper msg, Socket socket) throws Exception
+    {
+        if(stopMessage(msg,socket)) return;
+
+
+        System.out.println("Incoming broadcast from: "+msg.getSource());
+        if(socket!=null && serverSocket.getLocalPort()==Integer.parseInt(msg.getSource()))
+        {
+            System.out.println("Self Broadcast detected. Killing.");
+            return;
+        }
+        System.out.println(msg.getMsg());
+
+        send(msg,socket);
+    }
+
+    private boolean stopMessage(MessageWrapper msg, Socket socket)
+    {
+        for (String id:pendingOrdersLinkedList)
+        {
+
+            if(id.equals(msg.getId())) {
+                System.out.println("Broken retransmission... STOPPING");
+                return true;
+            }
+
+        }
+        pendingOrdersLinkedList.add(msg.getId());
+
+
+        System.out.println("Incoming broadcast from: "+msg.getSource());
+        if(socket!=null && serverSocket.getLocalPort()==Integer.parseInt(msg.getSource()))
+        {
+            System.out.println("Self Broadcast detected. Killing.");
+            return true;
+        }
+
+        return false;
+    }
+
+    private void send(MessageWrapper msg, Socket socket) throws Exception
+    {
+        if(slave!=null)
+            Worker.sendMessage(msg.getMessage(), knownOOS.get(slave));
+
+        for(Socket regSocket : registeredConnections)
+        {
+            if(socket == regSocket)
+            {
+                System.out.print("Sending to friend: " + regSocket.getPort());
+                System.out.println(" | Stopping resend - sender!");
+            }else
+            {
+                System.out.println("Sending to friend: " + regSocket.getPort());
+                Worker.sendMessage(msg.getMessage(),knownOOS.get(regSocket));
+            }
         }
     }
 

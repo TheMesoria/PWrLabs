@@ -19,14 +19,29 @@
       <file leaf-file-name="Servlet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="163" column="57" selection-start-line="163" selection-start-column="57" selection-end-line="163" selection-end-column="57" />
+            <state relative-caret-position="437">
+              <caret line="202" column="23" selection-start-line="202" selection-start-column="23" selection-end-line="202" selection-end-column="23" />
               <folding>
+                <element signature="method#start#0;class#Servlet#0" />
                 <element signature="method#server#0;class#Servlet#0" />
                 <element signature="method#handleNewSocketConnection#0;class#Servlet#0" />
+                <element signature="method#handleCommunication#0;class#Servlet#0" />
                 <element signature="method#handleCommunication#1;class#Servlet#0" />
-                <element signature="e#6714#6715#0" expanded="true" />
-                <element signature="e#6783#6784#0" expanded="true" />
+                <element signature="method#handleSOAPMessage#0;class#Servlet#0" />
+                <element signature="method#handleBroadcast#0;class#Servlet#0" />
+                <element signature="method#send#0;class#Servlet#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServletFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlet/ServletFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="588">
+              <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,8 +102,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -139,7 +153,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -168,7 +183,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Lab8Task1V3" />
-      <option name="PROGRAM_PARAMETERS" value="--port 8000 --namide --circle A" />
+      <option name="PROGRAM_PARAMETERS" value="--port 8003 --name ide --circle A --master 8002 --slave 8000" />
       <option name="VM_PARAMETERS" value="--add-modules java.se.ee " />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     </configuration>
@@ -231,47 +246,48 @@
       <updated>1524045828324</updated>
       <workItem from="1524045833552" duration="403000" />
       <workItem from="1524046353793" duration="2274000" />
-      <workItem from="1524408616148" duration="17385000" />
+      <workItem from="1524408616148" duration="17748000" />
+      <workItem from="1524487235940" duration="7392000" />
+      <workItem from="1524511880495" duration="601000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20062000" />
+    <option name="totallyTimeSpent" value="28418000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1987" y="27" width="1853" height="1173" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32843137" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
+      <window_info auto_hide="true" content_ui="combo" id="Project" order="0" weight="0.24919957" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32843137" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" x="0" y="0" width="413" height="973" id="Documentation" side_tool="true" weight="0.32982844" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32843137" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32982844" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info auto_hide="true" content_ui="combo" id="Project" order="0" weight="0.24958494" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.43888888" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32843137" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" x="0" y="0" width="413" height="973" id="Documentation" order="4" side_tool="true" weight="0.32982844" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.32982844" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,10 +298,54 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="32" />
+      <option name="time" value="37" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4242">
+          <caret line="202" column="23" selection-start-line="202" selection-start-column="23" selection-end-line="202" selection-end-column="23" />
+          <folding>
+            <element signature="method#start#0;class#Servlet#0" />
+            <element signature="method#server#0;class#Servlet#0" />
+            <element signature="method#handleNewSocketConnection#0;class#Servlet#0" />
+            <element signature="method#handleCommunication#0;class#Servlet#0" />
+            <element signature="method#handleCommunication#1;class#Servlet#0" />
+            <element signature="method#handleSOAPMessage#0;class#Servlet#0" />
+            <element signature="method#handleBroadcast#0;class#Servlet#0" />
+            <element signature="method#send#0;class#Servlet#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/ServletFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3423">
+          <caret line="163" column="57" selection-start-line="163" selection-start-column="57" selection-end-line="163" selection-end-column="57" />
+          <folding>
+            <element signature="method#start#0;class#Servlet#0" />
+            <element signature="method#server#0;class#Servlet#0" />
+            <element signature="method#handleNewSocketConnection#0;class#Servlet#0" />
+            <element signature="method#handleCommunication#0;class#Servlet#0" />
+            <element signature="method#handleCommunication#1;class#Servlet#0" />
+            <element signature="method#handleSOAPMessage#0;class#Servlet#0" />
+            <element signature="method#handleBroadcast#0;class#Servlet#0" />
+            <element signature="method#send#0;class#Servlet#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="903">
@@ -307,11 +367,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
           <caret line="52" column="44" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
-          <folding>
-            <element signature="method#createMessage#0;class#Worker#0" />
-            <element signature="method#createMessage#1;class#Worker#0" />
-            <element signature="method#getSoapMessageFromString#0;class#Worker#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -319,11 +374,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2037">
           <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
-          <folding>
-            <element signature="method#MessageWrapper#0;class#MessageWrapper#0" />
-            <element signature="method#MessageWrapper#1;class#MessageWrapper#0" />
-            <element signature="method#toString#0;class#MessageWrapper#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -338,11 +388,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="67" column="41" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
-          <folding>
-            <element signature="method#createMessage#0;class#Worker#0" />
-            <element signature="method#createMessage#1;class#Worker#0" />
-            <element signature="method#getSoapMessageFromString#0;class#Worker#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -368,11 +413,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
           <caret line="69" selection-start-line="69" selection-end-line="69" />
-          <folding>
-            <element signature="method#createMessage#0;class#Worker#0" />
-            <element signature="method#createMessage#1;class#Worker#0" />
-            <element signature="method#getSoapMessageFromString#0;class#Worker#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -390,11 +430,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="55" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="method#MessageWrapper#0;class#MessageWrapper#0" />
-            <element signature="method#MessageWrapper#1;class#MessageWrapper#0" />
-            <element signature="method#toString#0;class#MessageWrapper#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -407,8 +442,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlet/ServletFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="35" column="88" selection-start-line="35" selection-start-column="88" selection-end-line="35" selection-end-column="88" />
+        <state relative-caret-position="588">
+          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -417,14 +452,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlet/Servlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="163" column="57" selection-start-line="163" selection-start-column="57" selection-end-line="163" selection-end-column="57" />
+        <state relative-caret-position="437">
+          <caret line="202" column="23" selection-start-line="202" selection-start-column="23" selection-end-line="202" selection-end-column="23" />
           <folding>
+            <element signature="method#start#0;class#Servlet#0" />
             <element signature="method#server#0;class#Servlet#0" />
             <element signature="method#handleNewSocketConnection#0;class#Servlet#0" />
+            <element signature="method#handleCommunication#0;class#Servlet#0" />
             <element signature="method#handleCommunication#1;class#Servlet#0" />
-            <element signature="e#6714#6715#0" expanded="true" />
-            <element signature="e#6783#6784#0" expanded="true" />
+            <element signature="method#handleSOAPMessage#0;class#Servlet#0" />
+            <element signature="method#handleBroadcast#0;class#Servlet#0" />
+            <element signature="method#send#0;class#Servlet#0" />
           </folding>
         </state>
       </provider>
