@@ -156,10 +156,12 @@ public class Servlet {
                 {
                     System.out.println("Detected friend.");
                     msg.setMsg("YES");
+                    Worker.sendMessage(msg.getMessage(), knownOOS.get(socket));
+                    return;
                 }
-                ObjectOutputStream oos = knownOOS.get(socket);
+                ObjectOutputStream oos = knownOOS.get(slave);
                 if(oos==null) System.out.println("There is null as socket...");
-                Worker.sendMessage(msg.getMessage(), knownOOS.get(socket));
+                Worker.sendMessage(msg.getMessage(), knownOOS.get(slave));
 
                 break;
             case "SERVER-A":
