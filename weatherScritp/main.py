@@ -1,5 +1,6 @@
 import csv
 import math
+from os import walk
 
 
 def calc_partial_steam_pressure(temperature):
@@ -38,38 +39,74 @@ def calc_p_when_not_given(height, pressure, temperature, height_wrf, g):
            )
 
 
-csvData = []
-csvResults = []
-with open("daneLab02/surface_20150912_00.csv") as csvFile:
-    reader = csv.reader(csvFile, delimiter=',', quotechar='|')
-    for row in reader:
-        csvData.append(row)
+def calc_for_file(file):
+    csv_data = []
+    csv_results = []
+    with open(file) as csvFile:
+        reader = csv.reader(csvFile, delimiter=',', quotechar='|')
+        for row in reader:
+            csv_data.append(row)
 
-for row in csvData:
-
-    if row[3] == "interp":
-        needed_steam_pressure=row[12]
-    elif row[3] == "2m":
-        needed_steam_pressure=calc_p_when_not_given(
-            row[8],
-            row[12],
-            row[10],
-            row[9],
-            calc_g(
-                row[4],
+    for row in csv_data:
+        needed_steam_pressure = 0
+        if row[3] == "interp":
+            needed_steam_pressure = row[12]
+        elif row[3] == "2m":
+            needed_steam_pressure = calc_p_when_not_given(
                 row[8],
-                row[9]
+                row[12],
+                row[10],
+                row[9],
+                calc_g(
+                    row[4],
+                    row[8],
+                    row[9]
+                )
+            )
+
+        out = calc_ztd(
+            calc_partial_steam_pressure(row[10]),
+            needed_steam_pressure,
+            calc_e(
+                row[11],
+                calc_partial_steam_pressure(row[10])
             )
         )
+        csv_results.append(out)
 
-    out=calc_ztd(
-        calc_partial_steam_pressure(row[10]),
-        needed_steam_pressure,
-        calc_e(
-            row[11],
-            calc_partial_steam_pressure(row[10])
-        )
-    )
-    csvResults.append(out)
+    return csv_results
 
-print(csvResults)
+f = []
+for (dirpath, dirnames, filenames) in walk("daneLab02/"):
+    f.extend(filenames)
+    break
+
+known_res = []
+for var in f:
+    known_res.append(calc_for_file("daneLab02/"+var))
+
+counter = 0
+for res in known_res:
+    for x in range(0, 6 * counter):
+        res.insert(0, 0.0)
+
+length = known_res.__len__()
+size = known_res.__sizeof__()
+
+average = []
+for x in range(0, size):
+    val = 0
+    counter = 0
+    for y in range(0, length):
+        test_elm=known_res[y][x]
+        if test_elm == 0:
+            break
+        val += test_elm
+        counter += 1
+
+    if counter == 0:
+        average.append(0)
+        continue
+    average.append(val/counter)
+
+print(average)
