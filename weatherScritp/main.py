@@ -2,6 +2,10 @@ import csv
 import math
 from os import walk
 
+import matplotlib
+import numpy
+import matplotlib.pyplot as pyplot
+
 
 def calc_partial_steam_pressure(temperature):
     return 6.112 * math.exp(
@@ -110,3 +114,8 @@ for x in range(0, size):
     average.append(val/counter)
 
 print(average)
+
+x = numpy.linspace(0, 48, 500)
+pyplot.plot(average)
+pyplot.title('Tmp chart')
+pyplot.show()
