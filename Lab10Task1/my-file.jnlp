@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    
+    <jnlp codebase="/home/black/Work/lab/Lab10Task1/">
+    <information>
+        <title>SampleApp</title>
+        <vendor>Sample Company</vendor>
+        <icon href="*"/>
+        <offline-allowed/>
+    </information>
+    <resources>
+        <java version="1.3+"/>
+        <jar href="testLaunch.jar"/>
+    </resources>
+    <application-desc main-class="DataBaseApplication"/>
+    </jnlp>

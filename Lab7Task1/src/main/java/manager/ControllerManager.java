@@ -30,7 +30,7 @@ public class ControllerManager
 		} catch (Exception e)
 		{
 			System.err.println("Load unsuccessful, shutting.");
-			e.printStackTrace();
+//			e.printStackTrace();
 			System.exit(-1);
 		}
 	}
