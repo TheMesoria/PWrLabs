@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/black/Work/lab/Lab11Task1/library.cpp
+library.hpp
+/home/black/Work/lab/Lab11Task1/library.hpp
+iostream
+-
+
+/home/black/Work/lab/Lab11Task1/library.hpp
+string
+-
+
+/home/black/Work/lab/Lab11Task1/main.cpp
+iostream
+-
+library.hpp
+/home/black/Work/lab/Lab11Task1/library.hpp
+

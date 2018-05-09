@@ -123,6 +123,19 @@ Lab11Task1/fast:
 	$(MAKE) -f CMakeFiles/Lab11Task1.dir/build.make CMakeFiles/Lab11Task1.dir/build
 .PHONY : Lab11Task1/fast
 
+#=============================================================================
+# Target rules for targets named Lab11Task2
+
+# Build rule for target.
+Lab11Task2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Lab11Task2
+.PHONY : Lab11Task2
+
+# fast build rule for target.
+Lab11Task2/fast:
+	$(MAKE) -f CMakeFiles/Lab11Task2.dir/build.make CMakeFiles/Lab11Task2.dir/build
+.PHONY : Lab11Task2/fast
+
 library.o: library.cpp.o
 
 .PHONY : library.o
@@ -130,6 +143,7 @@ library.o: library.cpp.o
 # target to build an object file
 library.cpp.o:
 	$(MAKE) -f CMakeFiles/Lab11Task1.dir/build.make CMakeFiles/Lab11Task1.dir/library.cpp.o
+	$(MAKE) -f CMakeFiles/Lab11Task2.dir/build.make CMakeFiles/Lab11Task2.dir/library.cpp.o
 .PHONY : library.cpp.o
 
 library.i: library.cpp.i
@@ -139,6 +153,7 @@ library.i: library.cpp.i
 # target to preprocess a source file
 library.cpp.i:
 	$(MAKE) -f CMakeFiles/Lab11Task1.dir/build.make CMakeFiles/Lab11Task1.dir/library.cpp.i
+	$(MAKE) -f CMakeFiles/Lab11Task2.dir/build.make CMakeFiles/Lab11Task2.dir/library.cpp.i
 .PHONY : library.cpp.i
 
 library.s: library.cpp.s
@@ -148,7 +163,35 @@ library.s: library.cpp.s
 # target to generate assembly for a file
 library.cpp.s:
 	$(MAKE) -f CMakeFiles/Lab11Task1.dir/build.make CMakeFiles/Lab11Task1.dir/library.cpp.s
+	$(MAKE) -f CMakeFiles/Lab11Task2.dir/build.make CMakeFiles/Lab11Task2.dir/library.cpp.s
 .PHONY : library.cpp.s
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/Lab11Task2.dir/build.make CMakeFiles/Lab11Task2.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/Lab11Task2.dir/build.make CMakeFiles/Lab11Task2.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/Lab11Task2.dir/build.make CMakeFiles/Lab11Task2.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -159,9 +202,13 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Lab11Task1"
+	@echo "... Lab11Task2"
 	@echo "... library.o"
 	@echo "... library.i"
 	@echo "... library.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

@@ -1,3 +1,4 @@
 /home/black/Work/lab/Lab11Task1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /home/black/Work/lab/Lab11Task1/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/black/Work/lab/Lab11Task1/cmake-build-debug/CMakeFiles/Lab11Task1.dir
+/home/black/Work/lab/Lab11Task1/cmake-build-debug/CMakeFiles/Lab11Task2.dir
