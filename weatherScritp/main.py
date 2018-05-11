@@ -80,42 +80,38 @@ def calc_for_file(file):
 
     return csv_results
 
-f = []
-for (dirpath, dirnames, filenames) in walk("daneLab02/"):
-    f.extend(filenames)
-    break
+def start():
+    f = []
+    for (dirpath, dirnames, filenames) in walk("daneLab02/"):
+        f.extend(filenames)
+        break
 
-known_res = []
-for var in f:
-    known_res.append(calc_for_file("daneLab02/"+var))
+    known_res = []
+    for var in f:
+        known_res.append(calc_for_file("daneLab02/" + var))
 
-counter = 0
-for res in known_res:
-    for x in range(0, 6 * counter):
-        res.insert(0, 0.0)
-
-length = known_res.__len__()
-size = known_res.__sizeof__()
-
-average = []
-for x in range(0, size):
-    val = 0
     counter = 0
-    for y in range(0, length):
-        test_elm=known_res[y][x]
-        if test_elm == 0:
-            break
-        val += test_elm
-        counter += 1
+    for res in known_res:
+        for x in range(0, 6 * counter):
+            res.insert(0, 0.0)
 
-    if counter == 0:
-        average.append(0)
-        continue
-    average.append(val/counter)
+    length = known_res.__len__()
+    size = known_res.__sizeof__()
 
-print(average)
+    average = []
+    for x in range(0, size):
+        val = 0
+        counter = 0
+        for y in range(0, length):
+            test_elm = known_res[y][x]
+            if test_elm == 0:
+                break
+            val += test_elm
+            counter += 1
 
-x = numpy.linspace(0, 48, 500)
-pyplot.plot(average)
-pyplot.title('Tmp chart')
-pyplot.show()
+        if counter == 0:
+            average.append(0)
+            continue
+        average.append(val / counter)
+
+    print(average)
