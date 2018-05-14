@@ -1,4 +1,6 @@
 /home/black/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/181.4668.70/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/black/Work/lab/Lab11Task1
+-- JNI_INCLUDE_DIRS=/usr/lib/jvm/java-9-oracle/include;/usr/lib/jvm/java-9-oracle/include/linux;/usr/lib/jvm/java-9-oracle/include
+-- JNI_LIBRARIES=/usr/lib/jvm/java-9-oracle/lib/libjawt.so;/usr/lib/jvm/java-9-oracle/lib/server/libjvm.so
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/black/Work/lab/Lab11Task1/cmake-build-debug

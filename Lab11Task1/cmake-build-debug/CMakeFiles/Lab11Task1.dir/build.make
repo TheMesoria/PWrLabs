@@ -90,6 +90,8 @@ Lab11Task1_EXTERNAL_OBJECTS =
 
 libLab11Task1.so: CMakeFiles/Lab11Task1.dir/library.cpp.o
 libLab11Task1.so: CMakeFiles/Lab11Task1.dir/build.make
+libLab11Task1.so: /usr/lib/jvm/java-9-oracle/lib/libjawt.so
+libLab11Task1.so: /usr/lib/jvm/java-9-oracle/lib/server/libjvm.so
 libLab11Task1.so: CMakeFiles/Lab11Task1.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/black/Work/lab/Lab11Task1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library libLab11Task1.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Lab11Task1.dir/link.txt --verbose=$(VERBOSE)
