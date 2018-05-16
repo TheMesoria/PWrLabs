@@ -12,7 +12,7 @@ public class HelloJNI {
     // Test Driver
     public static void main(String[] args) {
         new HelloJNI().sayHello();
-        System.out.println(new HelloJNI().isPrime(30));
+        System.out.println(new HelloJNI().isPrime(17));
         float[] arr = {10,20,30};
         new HelloJNI().forEachElement(arr,10,"add");
 

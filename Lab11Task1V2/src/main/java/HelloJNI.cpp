@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "HelloJNI.h"
+#include <cmath>
 
 JNIEXPORT void JNICALL Java_HelloJNI_sayHello(JNIEnv *, jobject)
 {
@@ -11,6 +12,7 @@ JNIEXPORT void JNICALL Java_HelloJNI_sayHello(JNIEnv *, jobject)
 
 JNIEXPORT jboolean JNICALL Java_HelloJNI_isPrime(JNIEnv *kek, jobject, jint val)
 {
+        float x = sqrt(val)+1;
     for(auto i=2;i<val;i++)
         if(val % i == 0)
             return false;
