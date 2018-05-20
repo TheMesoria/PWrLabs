@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show offers</title>
+</head>
+<body>
+    {% for item in offers %}
+        <li>{{ item.get() }}</li>
+    {% endfor %}
+</body>
+</html>

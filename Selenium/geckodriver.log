@@ -1,0 +1,56 @@
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x15007F,name=PBrowser::Msg_Destroy) Closed channel: cannot send/recv
+
+[Parent 3964, Gecko_IOThread] WARNING: pipe error (101): Connection reset by peer: file /build/firefox-c3U081/firefox-60.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1526625501045	geckodriver	INFO	geckodriver 0.20.1
+1526625501048	geckodriver	INFO	Listening on 127.0.0.1:50159
+1526625502055	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.Rmvr3zCK88qs"
+1526625503602	Marionette	INFO	Listening on port 39227
+1526625503661	Marionette	WARN	TLS certificate errors will be ignored for this session
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1526625641020	geckodriver	INFO	geckodriver 0.20.1
+1526625641023	geckodriver	INFO	Listening on 127.0.0.1:58589
+1526625642028	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.IbiSj4NZQT6A"
+1526625643554	Marionette	INFO	Listening on port 33017
+1526625643633	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://magento.softwaretestingboard.com/, line 1: ReferenceError: modifyKeywordClickURL is not defined
+
+(/usr/lib/firefox/firefox:5039): dconf-WARNING **: 08:41:47.651: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+IPDL protocol error: Handler returned error code!
+
+###!!! [Parent][DispatchAsyncMessage] Error: PLayerTransaction::Msg_ReleaseLayer Processing error: message was deserialized, but the handler returned false (indicating failure)
+
+1526626006249	geckodriver	INFO	geckodriver 0.20.1
+1526626006253	geckodriver	INFO	Listening on 127.0.0.1:49417
+1526626007259	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.vXpNhl8LCcYO"
+1526626008777	Marionette	INFO	Listening on port 44343
+1526626008865	Marionette	WARN	TLS certificate errors will be ignored for this session
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1526626032720	geckodriver	INFO	geckodriver 0.20.1
+1526626032724	geckodriver	INFO	Listening on 127.0.0.1:39293
+1526626033730	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.ZdGJEd8s1rQx"
+1526626035208	Marionette	INFO	Listening on port 44359
+1526626035244	Marionette	WARN	TLS certificate errors will be ignored for this session
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1526626155884	geckodriver	INFO	geckodriver 0.20.1
+1526626155889	geckodriver	INFO	Listening on 127.0.0.1:42267
+1526626156895	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.x0WtOvjbcvdD"
+1526626158384	Marionette	INFO	Listening on port 41721
+1526626158400	Marionette	WARN	TLS certificate errors will be ignored for this session
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
