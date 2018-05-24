@@ -7,15 +7,22 @@ driver.implicitly_wait(30)
 # driver.maximize_window()
 
 # navigate to the application home page
-driver.get('https://google.com')
-driver.implicitly_wait(30)
-driver.get('https://bing.com')
-driver.implicitly_wait(30)
-driver.get('https://nokia.com')
-driver.implicitly_wait(30)
+driver.set_page_load_timeout(5)
+driver.get('http://facebook.com')
+assert "Facebook" in driver.title
+driver.find_element_by_id('email').send_keys("Selenium Webdriver")
+driver.find_element_by_name('pass').send_keys("python")
+driver.implicitly_wait(5)
+driver.find_element_by_id('loginbutton').click()
+
+title = driver.title
+
+driver.get_screenshot_as_file('test.png')
+driver.close()
+
 
 # get the search textbox
-search_field = driver.find_element_by_name('q')
+# search_field = driver.find_element_by_name('q')
 # search_field.clear()
 # # enter search keyword and submit
 # search_field.send_keys('t-shirt')
