@@ -15,6 +15,16 @@ driver.find_element_by_name('pass').send_keys("python")
 driver.implicitly_wait(5)
 driver.find_element_by_id('loginbutton').click()
 
+driver.get('http://jaroslaw.rudy.staff.iiar.pwr.wroc.pl/')
+driver.set_page_load_timeout(10)
+
+text_file = open("saved.html",'r')
+known = text_file.read()
+
+assert known in driver.page_source
+
+# assert known is driver.page_source
+
 title = driver.title
 
 driver.get_screenshot_as_file('test.png')

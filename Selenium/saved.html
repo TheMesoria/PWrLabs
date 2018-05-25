@@ -1,0 +1,241 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"><head>
+<meta http-equiv="Content-Language" content="pl">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="google-site-verification" content="j2lPZMswJ3JdXRzokXnlQi9YKHmAB7GcCsN7so3rgXk">
+<meta name="Keywords" content="PWr, Politechnika Wrocławska, dydaktyka, konsultacje, harmonogram, materiały, kontakt">
+<link rel="stylesheet" href="reset.css">
+<link rel="icon" type="image/png" href="/images/icon.png">
+<base href="http://jaroslaw.rudy.staff.iiar.pwr.wroc.pl/" target="_self">
+<title>Jarosław Rudy - Politechnika Wrocławska</title>
+
+<script>
+
+	function urlObject(options)
+	{
+	    "use strict";
+	    /*global window, document*/
+
+	    var url_search_arr,
+	        option_key,
+	        i,
+	        urlObj,
+	        get_param,
+	        key,
+	        val,
+	        url_query,
+	        url_get_params = {},
+	        a = document.createElement('a'),
+	        default_options = {
+	            'url': window.location.href,
+	            'unescape': true,
+	            'convert_num': true
+	        };
+
+	    if (typeof options !== "object") {
+	        options = default_options;
+	    } else {
+	        for (option_key in default_options) {
+	            if (default_options.hasOwnProperty(option_key)) {
+	                if (options[option_key] === undefined) {
+	                    options[option_key] = default_options[option_key];
+	                }
+	            }
+	        }
+	    }
+
+	    a.href = options.url;
+	    url_query = a.search.substring(1);
+	    url_search_arr = url_query.split('&');
+
+	    if (url_search_arr[0].length > 1) {
+	        for (i = 0; i < url_search_arr.length; i += 1) {
+	            get_param = url_search_arr[i].split("=");
+
+	            if (options.unescape) {
+	                key = decodeURI(get_param[0]);
+	                val = decodeURI(get_param[1]);
+	            } else {
+	                key = get_param[0];
+	                val = get_param[1];
+	            }
+
+	            if (options.convert_num) {
+	                if (val.match(/^\d+$/)) {
+	                    val = parseInt(val, 10);
+	                } else if (val.match(/^\d+\.\d+$/)) {
+	                    val = parseFloat(val);
+	                }
+	            }
+
+	            if (url_get_params[key] === undefined) {
+	                url_get_params[key] = val;
+	            } else if (typeof url_get_params[key] === "string") {
+	                url_get_params[key] = [url_get_params[key], val];
+	            } else {
+	                url_get_params[key].push(val);
+	            }
+
+	            get_param = [];
+	        }
+	    }
+
+	    urlObj = {
+	        protocol: a.protocol,
+	        hostname: a.hostname,
+	        host: a.host,
+	        port: a.port,
+	        hash: a.hash.substr(1),
+	        pathname: a.pathname,
+	        search: a.search,
+	        parameters: url_get_params
+	    };
+
+	    return urlObj;
+	}
+
+	function hidePart( val )
+	{
+		var element = document.getElementById( val );
+
+		if ( element.style.display == "none" )
+	    	element.style.display = "block";
+	    else
+	    	element.style.display = "none";
+	}
+
+	function showClass( val , val2 )
+	{
+		var elements = document.getElementsByClassName("div_class");
+		for ( i = 0; i < elements.length; i++ )
+			elements[i].style.display = "none";
+
+		elements = document.getElementsByClassName("class_button_active");
+		for ( i = 0; i < elements.length; i++ )
+			elements[i].className = "class_button";
+
+		var element = document.getElementById( val );
+    	element.style.display = "block";
+
+    	element = document.getElementById( val2 );
+    	element.className = "class_button_active";
+	}
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body lang="pl">
+<img src="images/gears_background.jpg" alt="" id="bg">
+<div id="content" style="width: 1175px; margin: 25px auto 25px auto; line-height:1.2">
+<div>
+
+
+</div>
+<table width="1175" cellspacing="0" border="0">
+	<tbody><tr>
+		<td colspan="3" style="background-color:#9f2e1c;" class="style1" background="images/eka_background.png">
+		<div style="position:relative">
+		<img alt="PWr - Wydział Elektroniki" src="images/weka.png" style="float: left; position:relative; z-index:1; top:0; left:0" width="957" height="174"><a href="index.php"><img src="images/flag_pl.png" style="width:70px; position:relative; z-index:1; top:0; right:0"></a><a href="index_en.php"><img src="images/flag_en.png" style="width:70px; position:relative; z-index:1; top:0; right:0"></a>		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" style="height: 27px; background-color:#f1d1a2" valign="middle">
+			<span class="style6">.
+			</span>
+			<span class="style3">
+			<a href="index.php" class="menu_present">&nbsp; Start &nbsp;</a>			</span>
+			<span class="style6">.
+			</span>
+			<span class="style3">
+			<a href="faq.php" class="menu">&nbsp; FAQ &nbsp;</a>			<span class="style6">.
+			</span>
+			<span class="style3">
+			<a href="plan.php" class="menu">&nbsp; Plan zajęć &nbsp;</a>			</span>
+			<span class="style6">.
+			</span>
+			<span class="style3">
+			<a href="dydaktyka.php" class="menu">&nbsp; Dydaktyka &nbsp;</a>			</span>
+			<span class="style6">.
+			</span>
+			<span class="style3">
+			<a href="dyplomanci.php" class="menu">&nbsp; Dyplomanci &nbsp;</a>			</span>
+			<span class="style6">.
+			</span>
+			<span class="style3">
+			<a href="publikacje.php" class="menu">&nbsp; Publikacje &nbsp;</a>			</span>
+		</span></td>
+	</tr>
+	<tr>
+		<td colspan="3" style="font-size:x-large" width="100%" height="15px" bgcolor="#9f2e1c">
+		</td>
+	</tr>
+	<tr>
+		<td style="font-size: 20px" class="padded" width="100%" valign="top" bgcolor="#f1d1a2">
+		Witam na mojej stronie internetowej.
+
+<br><br>
+
+Spis zakładek:<br><br>
+
+<ul>
+	<li><a href="faq.php">FAQ</a> – podstawowe informacje dotyczące zasad zaliczania kursów,</li><br>
+
+	<li><a href="plan.php">Plan zajęć</a> – tygodniowy plan zajęć (wliczając konsultacje),</li><br>
+
+	<li><a href="dydaktyka.php">Dydaktyka</a> – szczegółowe informacje dotyczące poszczególnych kursów (zasady zaliczenia, instrukcje laboratoryjne, odnośniki do materiałów itp.),</li><br>
+
+	<li><a href="dyplomanci.php">Dyplomanci</a> – informacje dla dyplomantów (egzaminy dyplomowe, promotorstwa),</li><br>
+
+	<li><a href="publikacje.php">Publikacje</a> – spis dorobku naukowego.</li><br>
+
+</ul>
+
+<hr class="basic">
+	<span id="office" style="font-weight:bold; font-size: 30px">
+		Konsultacje
+	</span>
+
+<br><br>Poniedziałki, 13:30–15:00, sala 312 (C-3).<br><br>Wtorki, 15:30–17:00, sala 312 (C-3).<br><br>Czwartki, 13:30–14:30, sala 312 (C-3).
+<br><br>
+
+<hr class="basic">
+	<span id="contact" style="font-weight:bold; font-size: 30px">
+		Kontakt
+	</span>
+
+<br><br>
+
+Poprzez email (<a href="mailto:jaroslaw.rudy@pwr.edu.pl">jaroslaw.rudy@pwr.edu.pl</a>) lub w terminach konsultacji.
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" style="font-size:x-large" width="100%" height="10px" bgcolor="#9f2e1c">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" style="font-size:x-large" width="100%" height="25px" bgcolor="#9f2e1c" align="center">
+			<span class="style7">Jarosław Rudy
+			</span>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" style="font-size:x-large" width="100%" height="30px" bgcolor="#9f2e1c" align="center">
+
+			
+			<span class="style7">Katedra Informatyki Technicznej</span>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" style="font-size:x-large" width="100%" height="5px" bgcolor="#9f2e1c">
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td colspan="3" style="vertical-align:bottom; padding:0px 0px 6px 0px" width="100%" height="22px" bgcolor="#9f2e1c" align="center">
+		<span class="updateTime">Ostatnia aktualizacja: 21.05.2018			</span>
+		</td>
+	</tr>
+</tbody></table>
+</div>
+
+
+</body></html>
