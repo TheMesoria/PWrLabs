@@ -2,19 +2,32 @@ import java.util.HashMap;
 import java.util.concurrent.ArrayBlockingQueue;
 
 public class CacheStorage {
-    private ArrayBlockingQueue<String> names;
-    private HashMap<String, CachedFile> cache;
+    private float loads = 0.f;
+    private float fails = 0.f;
+    private ArrayBlockingQueue<String> names = new ArrayBlockingQueue<>(30);
+    private HashMap<String, CachedFile> cache = new HashMap<>();
     private int maxSize;
 
+    public float getFailRate()
+    {
+        return fails/loads;
+    }
+
     public CacheStorage(int size) {
-        maxSize = size;
+        this.changeCacheSize(size);
     }
 
     synchronized CachedFile getFile(String name) {
-        if (cache.containsKey(name))
+        loads++;
+        if (cache.containsKey(name)) {
+            System.out.println("\n\nDetected known file for cache!\n\n");
             return cache.get(name);
+        }
 
-        if (maxSize >= names.size()) {
+        fails++;
+        System.out.println("\n\nDetected unknown file for cache, loading!\n\n");
+
+        if (maxSize <= names.size()) {
             String nameRemoved = names.poll();
             cache.remove(nameRemoved);
         }

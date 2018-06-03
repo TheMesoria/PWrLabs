@@ -28,7 +28,6 @@ public class CachedFile {
         File file = new File(classLoader.getResource(fileName).getFile());
 
         try (Scanner scanner = new Scanner(file)) {
-            System.out.println(scanner.hasNextLine());
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 result.append(line).append("\n");
