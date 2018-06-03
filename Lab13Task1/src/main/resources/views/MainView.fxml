@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXColorPicker?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="MainAnchorPane" fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <JFXToggleButton fx:id="toggleButton" onMouseClicked="#toggleFunctionality" text="ToggleButton" toggleColor="WHITE" toggleLineColor="GREEN" unToggleColor="BLACK" unToggleLineColor="RED" BorderPane.alignment="CENTER" />
+         </top>
+         <left>
+            <VBox fx:id="toggleVBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <JFXColorPicker fx:id="colorPicker" editable="true" layoutX="11.0" layoutY="8.0" prefHeight="28.0" prefWidth="125.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <JFXCheckBox fx:id="checkBoxColor" checkedColor="LIME" onAction="#changeBackgroundColor" text="Use Custom Color" unCheckedColor="RED">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                              <MenuItem id="menuItemDeception" fx:id="menuItemDeception" mnemonicParsing="false" onAction="#menuItemDeceptionChoice" text="Lie to me more" />
+                            <MenuItem id="menuItemTruth" fx:id="menuItemTruth" mnemonicParsing="false" onAction="#menuItemTruthChoice" text="Show me the truth" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </JFXCheckBox>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <AnchorPane fx:id="toggleAnchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <GridPane alignment="CENTER" layoutX="49.0" prefHeight="415.0" prefWidth="418.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="202.0" minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="283.0" minHeight="10.0" prefHeight="280.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <AnchorPane>
+                           <children>
+                              <VBox alignment="BASELINE_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label prefHeight="16.0" prefWidth="231.0" text="What do you think about background?" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="comboBox" prefWidth="150.0" promptText="Choose">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                    <SplitMenuButton mnemonicParsing="false" onAction="#changeColorToBlack" text="Make it Black">
+                                      <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#changeColorToBlue" text="Make it Blue" />
+                                        <MenuItem mnemonicParsing="false" onAction="#changeColorToRed" text="Make it Red" />
+                                      </items>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </SplitMenuButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                        <JFXTabPane prefWidth="329.0" GridPane.rowIndex="1">
+                           <tabs>
+                              <Tab text="Scrollbar">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <ScrollPane prefHeight="247.0" prefWidth="465.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <content>
+                                                <TableView editable="true">
+                                                  <columns>
+                                                    <TableColumn prefWidth="39.0" text="Id" />
+                                                    <TableColumn prefWidth="55.0" text="Name" />
+                                                      <TableColumn prefWidth="77.0" text="Surname" />
+                                                      <TableColumn prefWidth="204.0" text="Running out of ideas" />
+                                                      <TableColumn minWidth="0.0" prefWidth="0.0" text="It's kinda quick" />
+                                                      <TableColumn prefWidth="76.0" text="But hey" />
+                                                      <TableColumn prefWidth="200.0" text="Could be worse" />
+                                                      <TableColumn prefWidth="75.0" text="Scrollbar" />
+                                                      <TableColumn prefWidth="75.0" text="Works" />
+                                                  </columns>
+                                                </TableView>
+                                            </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Listview">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <JFXListView fx:id="listView" layoutX="106.0" layoutY="-147.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                           </tabs>
+                        </JFXTabPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </center>
+         <bottom>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#menuClose" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#menuDelete" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#menuAbout" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
