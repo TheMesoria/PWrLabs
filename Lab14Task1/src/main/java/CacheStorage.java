@@ -20,12 +20,10 @@ public class CacheStorage {
     synchronized CachedFile getFile(String name) {
         loads++;
         if (cache.containsKey(name)) {
-            System.out.println("\n\nDetected known file for cache!\n\n");
             return cache.get(name);
         }
 
         fails++;
-        System.out.println("\n\nDetected unknown file for cache, loading!\n\n");
 
         if (maxSize <= names.size()) {
             String nameRemoved = names.poll();

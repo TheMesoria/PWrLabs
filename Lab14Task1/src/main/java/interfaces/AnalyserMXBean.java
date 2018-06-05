@@ -5,4 +5,5 @@ public interface AnalyserMXBean {
     int getThreadCount();
     void setCacheSize(int cacheSize);
     int getCacheSize();
+    String printTheInfo();
 }

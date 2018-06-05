@@ -20,13 +20,18 @@ public class Analyser implements AnalyserMXBean {
     private ArrayBlockingQueue<Runner> threadEliminationQueue = new ArrayBlockingQueue<>(100);
 
     public Analyser() {
-        setCacheSize(30);
+        setCacheSize(5);
         setThreadCount(3);
     }
 
     @Override
     public int getCacheSize() {
         return cacheSize;
+    }
+
+    @Override
+    public String printTheInfo() {
+        return printInfo();
     }
 
     @Override
@@ -76,10 +81,10 @@ public class Analyser implements AnalyserMXBean {
         return cache;
     }
 
-    public void printInfo()
+    public String printInfo()
     {
-        System.out.println("Amount of threads running: " + getThreadCount() +".");
-        System.out.println("Cache status: " + cache.getFilesStored() + " files stored.");
-        System.out.println("Cache fail rate: " + cache.getFailRate()*100 + "%");
+        return "Amount of threads running: " + Integer.toString(getThreadCount()) +".\n" +
+        "Cache status: " + Integer.toString(cache.getFilesStored()) + " files stored.\n" +
+        "Cache fail rate: " + Float.toString(cache.getFailRate()*100) + "%";
     }
 }
