@@ -26,19 +26,27 @@ class Mastermind:
     def simulate_move(self, player):
         
         print("Current round: " + str(self.current_round) + ", current Match: " + str(self.current_match) )
-        guess = input(" Attempt the code break: ")
+        guess = input(" Attempt the code break: \t\t")
         
+        if guess == "exit()":
+            self.end_game = True
+            return
+
         if guess == self.password:
             print("Password successfully broken.")
             self.player_score[self.active_player] += 1
             self.print_scoreboard()
             self.current_round = 0
+            self.active_player = 0 if self.active_player == 1 else 1
+            return
 
         if self.current_round == self.round_length:
             print("You failed.")
             self.player_score[0 if self.active_player == 1 else 1] += 1
             self.print_scoreboard()
             self.current_round = 0
+            self.active_player = 0 if self.active_player == 1 else 1
+            return
 
         self.print_detection(self.detect(guess))
         self.current_round += 1
@@ -50,6 +58,10 @@ class Mastermind:
                 self.set_password()
 
             self.simulate_move(self.active_player)
+
+        os.system("clear")
+        print ( "\n\nGame Over.\n Results:" )
+        self.print_scoreboard()
 
 
     def detect(self, player_input):
@@ -74,10 +86,10 @@ class Mastermind:
             
 
     def print_detection(self, detection):
-        print ( "Correct: " + str( detection[0] ) + ", and Good: " + str( detection[1] ) )
+        print ( "\t\t\t\t\tCorrect: " + str( detection[0] ) + ", and Good: " + str( detection[1] ) )
 
 
     def print_scoreboard(self):
-        print( self.players[0] + " have " + str(self.player_score[0]) + " points." )
-        print( self.players[1] + " have " + str(self.player_score[1]) + " points." )
+        print( "\n\n" + self.players[0] + " have " + str(self.player_score[0]) + " points." )
+        print( self.players[1] + " have " + str(self.player_score[1]) + " points.\n\n" )
 
