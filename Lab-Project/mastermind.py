@@ -92,4 +92,3 @@ class Mastermind:
     def print_scoreboard(self):
         print( "\n\n" + self.players[0] + " have " + str(self.player_score[0]) + " points." )
         print( self.players[1] + " have " + str(self.player_score[1]) + " points.\n\n" )
-
